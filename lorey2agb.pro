@@ -36,9 +36,9 @@ Function apply_value, lorey_array, type
 ;	18		- class 170
 		18:	agb_array[*] = 1.799 * (lorey_array^1.536)
 ;	19		- mexico tropical dry broadleaf
-		19:	agb_array[*] = 0.73696 * ((1.4635 * (hlorey_array^0.80925))^2.0062)
+		19:	agb_array[*] = 0.73696 * ((1.4635 * (lorey_array^0.80925))^2.0062)
 ;	20		- mexico tropical conifer
-		20:	agb_array[*] = 6.4389 * ((1.4635 * (hlorey_array^0.80925))^1.0556)
+		20:	agb_array[*] = 6.4389 * ((1.4635 * (lorey_array^0.80925))^1.0556)
 
 ;	South America
 ;	30		-	class 40
@@ -159,9 +159,11 @@ Function apply_value, lorey_array, type
 ;	121		-	class 180
 		121:	agb_array[*] = 1.1799 * (lorey_array^1.536)
 
-	else: lorey_array[*] = -1
+	else: agb_array[*] = -1
 
 	endcase
+
+	return, agb_array
 
 End	
 
@@ -182,7 +184,6 @@ Function lorey2agb, in_lorey, in_type
 
 	if (count gt 0) then begin
 		types = in_type[index]
-		b = array[UNIQ(array, SORT(array))]
 		uniq_types = types[uniq(types,sort(types))]
 
 		n_types = n_elements(uniq_types)
