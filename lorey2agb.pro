@@ -58,7 +58,8 @@ Function apply_value, lorey_array, type
 
 ;	Eurasia
 ;	50		-	class 50, 60, 100 east
-		50:	agb_array[*] = 0.061015 * (lorey_array^2.6032)
+		;50:	agb_array[*] = 0.061015 * (lorey_array^2.6032)
+		50:	agb_array[*] = 0.26089 * (lorey_array^2.1192) ;changed after removing one outlier
 ;	51		- class 50, 60 west
 		51:	agb_array[*] = 1.1799 * (lorey_array^1.536)
 ;	52		-	class 70, 90 west (Norway)
@@ -81,7 +82,7 @@ Function apply_value, lorey_array, type
 ;	71		-	class 50
 		71:	agb_array[*] = 1.1799 * (lorey_array^1.536)
 ;	72		-	class 60
-		72:	agb_array[*] = 1.1799 * (lorey_array^1.536)
+		72:	agb_array[*] = 0.12363* (lorey_array^2.3533)
 ;	73		- class 70
 		73:	agb_array[*] = 0.68255 * (lorey_array^1.6939)
 ;	74		- class	90
@@ -113,7 +114,8 @@ Function apply_value, lorey_array, type
 ;	93		-	class 40 (nepal)
 		93:	agb_array[*] = 7.7413 * (lorey_array^1.3155)
 ;	94		-	class 70 (nepal)
-		94:	agb_array[*] = 0.69646 * (lorey_array^2.1062)
+;		94:	agb_array[*] = 0.69646 * (lorey_array^2.1062)
+		94:	agb_array[*] = 0.68255 * (lorey_array^1.6939)  ;temp use regular value because Nepal eq gives too high AGB
 ;	95		-	class 90
 		95:	agb_array[*] = 0.68255 * (lorey_array^1.6939)
 ;	96		-	class 100
@@ -132,6 +134,8 @@ Function apply_value, lorey_array, type
 		102:	agb_array[*] = 1.1799 * (lorey_array^1.536)
 ;	103		-	misclass
 		103:	agb_array[*] = 0.2788 * (lorey_array^2.12)
+; 104   - class 70 (rest of SEA)
+		104:	agb_array[*] = 0.68255 * (lorey_array^1.6939)
 
 ;	Australia
 ;	110		-	class 40
