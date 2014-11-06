@@ -36,7 +36,7 @@ Function apply_value, lorey_array, type
 ;	18		- class 170
 		18:	agb_array[*] = 1.799 * (lorey_array^1.536)
 ;	19		- mexico tropical dry broadleaf
-		19:	agb_array[*] = 0.73696 * ((1.4635 * (lorey_array^0.80925))^2.0062)
+		19:	agb_array[*] = 0.24888 * ((1.4635 * (lorey_array^0.80925))^2.4469) ; changed after removing outliers
 ;	20		- mexico tropical conifer
 		20:	agb_array[*] = 6.4389 * ((1.4635 * (lorey_array^0.80925))^1.0556)
 
@@ -108,7 +108,8 @@ Function apply_value, lorey_array, type
 ;	90		-	class 40 (tropical rain forest)
 		90:	agb_array[*] = 0.2788 * (lorey_array^2.12)
 ;	91		-	class 50
-		91: agb_array[*] = 0.061015 * (lorey_array^2.6032)
+		;91: agb_array[*] = 0.061015 * (lorey_array^2.6032)
+		91:	agb_array[*] = 0.26089 * (lorey_array^2.1192) ;changed after removing one outlier (from China)
 ;	92		-	class 60
 		92: agb_array[*] = 0.061015 * (lorey_array^2.6032)
 ;	93		-	class 40 (nepal)
