@@ -23,6 +23,8 @@ End
 
 PRO fill_type_image, ht_file, type_file, out_type_file, xdim, ydim
 
+	print, 'Filling type file ', type_file
+	print, 'Out file:', out_type_file
 
 	type_image = bytarr(xdim,ydim)
 
