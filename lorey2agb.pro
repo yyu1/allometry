@@ -199,6 +199,10 @@ Function lorey2agb, in_lorey, in_type
 		endfor
 	endif
 
+	;Use equation for values of hlorey that's there but no type (value small enough)
+	index = where((in_lorey gt 0) and (out_agb eq 0) and (in_lorey lt 10), count)
+	if (count gt 0) then out_agb[index] = 0.12363*(in_lorey[index]^2.3533)
+
 	return, out_agb
 
 End
