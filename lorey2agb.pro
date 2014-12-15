@@ -50,7 +50,7 @@ Function apply_value, lorey_array, type
 ;	33		- class 110, 120, 130
 		33:	agb_array[*] = 2.3053 * (lorey_array^1.3171)
 ;	35		- class 160
-		35:	agb_array[*] = 1.1799 * (lorey_array^1.536)
+		35:	agb_array[*] = 0.6011 * (lorey_array^1.894)
 ;	36		-	class 170
 		36:	agb_array[*] = 1.1799 * (lorey_array^1.536)
 ;	37		-	misclass
