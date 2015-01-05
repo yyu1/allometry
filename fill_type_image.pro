@@ -2,7 +2,7 @@
 ;has an associated type.
 
 Function get_near_value, type_image, ind_x, ind_y, xdim, ydim
-	;returns the neast type value from the given point that's not zero
+	;returns the neast type value from the given point that's not zero or 255
 
 	;type_image MUST be type byte  (so histogram can have the correct behavior)
 
@@ -10,7 +10,7 @@ Function get_near_value, type_image, ind_x, ind_y, xdim, ydim
 	n = 1ULL
 	while (max_val eq 0) do begin
 		box = type_image[(ind_x-n > 0):((ind_x+n) < (xdim-1)),(ind_y-n > 0):((ind_y+n) < (ydim-1))]
-		index = where(box ne 0, count)
+		index = where((box ne 0) and (box ne 255), count)
 		if (count gt 0) then begin
 			max_val = max(histogram(box[index]),max_ind)
 			return, max_ind
