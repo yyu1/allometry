@@ -30,7 +30,7 @@ Function apply_value, lorey_array, type
 ;	15		- class 100
 		15:	agb_array[*] = 0.689 * (lorey_array^1.6932)
 ;	16		- class 110, 120, 130
-		16:	agb_array[*] = 2.3053 * (lorey_array^1.3171)
+		16:	agb_array[*] = 1.3403 * (lorey_array^1.4694)
 ;	17		- class 160
 		17:	agb_array[*] = 1.799 * (lorey_array^1.536)
 ;	18		- class 170
@@ -39,6 +39,13 @@ Function apply_value, lorey_array, type
 		19:	agb_array[*] = 0.24888 * ((1.4635 * (lorey_array^0.80925))^2.4469) ; changed after removing outliers
 ;	20		- mexico tropical conifer
 		20:	agb_array[*] = 6.4389 * ((1.4635 * (lorey_array^0.80925))^1.0556)
+; 21		- boreal mixed
+		21: agb_array[*] = 3.6407 * (lorey_array^1.2722)
+; 22		- temperate savanna 
+		22: agb_array[*] = 1.3403 * (lorey_array^1.4694)
+; 23		- mediterranean
+		23: agb_array[*] = 2.3053 * (lorey_array^1.3171)
+
 
 ;	South America
 ;	30		-	class 40
@@ -140,7 +147,7 @@ Function apply_value, lorey_array, type
 
 ;	Australia
 ;	110		-	class 40
-		110:	agb_array[*] = 0.6011 * (lorey_array^1.894)
+		110:	agb_array[*] = 0.39194 * (lorey_array^2.1506)
 ;	111		-	class 50
 		111:	agb_array[*] = 1.1799 * (lorey_array^1.536)
 ;	112		-	class 60
