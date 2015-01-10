@@ -40,7 +40,7 @@ PRO fill_type_image, ht_file, type_file, out_type_file, xdim, ydim
 	for j=0ULL, ydim-1 do begin
 		readu, ht_lun, ht_line
 		type_line[*] = type_image[*,j]
-		index = where((ht_line gt 0) and (type_line eq 0),count)
+		index = where((ht_line gt 5) and (type_line eq 0),count)
 
 		if (count gt 0) then begin
 			for i=0ULL, count-1 do begin
