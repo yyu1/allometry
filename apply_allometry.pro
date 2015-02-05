@@ -14,15 +14,19 @@ PRO apply_allometry, lorey_file, type_file, out_file
 
 	in_line = fltarr(read_pix)
 	in_type = bytarr(read_pix)
+	out_line = intarr(read_pix)
 
 	for i=0, 99 do begin
 		print, i
 		readu, lorey_lun, in_line
 		readu, type_lun, in_type
 
-		out_agb = fix(lorey2agb(in_line,in_type)*10)
+		out_line[*] = fix(in_line)
+		index = where(in_line gt 0, count)
 
-		writeu, out_lun, out_agb
+		if (count gt 0) then out_line[index] = fix(lorey2agb(in_line[index],in_type[index])*10)
+
+		writeu, out_lun, out_line
 	endfor
 
 END

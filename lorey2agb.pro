@@ -175,7 +175,7 @@ Function apply_value, lorey_array, type
 ;	121		-	class 180
 		121:	agb_array[*] = 1.1799 * (lorey_array^1.536)
 
-	else: agb_array[*] = -1
+	else: agb_array[*] = 0
 
 	endcase
 
