@@ -103,7 +103,8 @@ Function apply_value, lorey_array, type
 ;	78		-	class 130
 		78:	agb_array[*] = 2.3053 * (lorey_array^1.3171)
 ;	79		-	class 160
-		79:	agb_array[*] = 1.1799 * (lorey_array^1.536)
+		;79:	agb_array[*] = 1.1799 * (lorey_array^1.536)
+		79:	agb_array[*] = 0.2788 * (lorey_array^2.12)
 ;	80		-	class 170
 		80:	agb_array[*] = 1.1799 * (lorey_array^1.536)
 ;	81		-	class 180
@@ -144,6 +145,9 @@ Function apply_value, lorey_array, type
 		103:	agb_array[*] = 0.2788 * (lorey_array^2.12)
 ; 104   - class 70 (rest of SEA)
 		104:	agb_array[*] = 0.68255 * (lorey_array^1.6939)
+; 105 - terai lowland forests
+		;use mixed equation from Guoqing China for now
+		105:	agb_array[*] = 0.26089 * (lorey_array^2.1192)
 
 ;	Australia
 ;	110		-	class 40
