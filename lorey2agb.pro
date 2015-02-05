@@ -114,7 +114,7 @@ Function apply_value, lorey_array, type
 
 ;	Southeast Asia
 ;	90		-	class 40 (tropical rain forest)
-		90:	agb_array[*] = 0.2788 * (lorey_array^2.12)
+		90:	agb_array[*] = 0.21608 * (lorey_array^2.1604)
 ;	91		-	class 50
 		;91: agb_array[*] = 0.061015 * (lorey_array^2.6032)
 		91:	agb_array[*] = 0.26089 * (lorey_array^2.1192) ;changed after removing one outlier (from China)
@@ -136,13 +136,13 @@ Function apply_value, lorey_array, type
 ;	99		-	class 130
 		99:	agb_array[*] = 2.3053 * (lorey_array^1.3171)
 ;	100		-	class 160
-		100:	agb_array[*] = 1.1799 * (lorey_array^1.536)
+		100:	agb_array[*] = 0.21608 * (lorey_array^2.1604)
 ;	101		-	class 170
 		101:	agb_array[*] = 1.1799 * (lorey_array^1.536)
 ;	102		-	class 180
 		102:	agb_array[*] = 1.1799 * (lorey_array^1.536)
 ;	103		-	misclass
-		103:	agb_array[*] = 0.2788 * (lorey_array^2.12)
+		103:	agb_array[*] = 0.21608 * (lorey_array^2.1604)
 ; 104   - class 70 (rest of SEA)
 		104:	agb_array[*] = 0.68255 * (lorey_array^1.6939)
 ; 105 - terai lowland forests
@@ -169,7 +169,7 @@ Function apply_value, lorey_array, type
 ;	118		-	class 130
 		118:	agb_array[*] = 2.3053 * (lorey_array^1.3171)
 ;	119		-	class 160
-		119:	agb_array[*] = 1.1799 * (lorey_array^1.536)
+		119:	agb_array[*] = 0.39194 * (lorey_array^2.1506)
 ;	120		-	class 170
 		120:	agb_array[*] = 1.1799 * (lorey_array^1.536)
 ;	121		-	class 180
