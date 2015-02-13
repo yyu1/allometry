@@ -46,6 +46,59 @@ Function apply_value, lorey_array, type
 ; 23		- mediterranean
 		23: agb_array[*] = 2.3053 * (lorey_array^1.3171)
 
+; 150   - Canada ecozone 14: Montane Cordilera
+		150: agb_array[*] = 1.5248 * (lorey_array^1.5512)
+; 151   - Canada ecozone 13: Pacific Maritime
+		151: agb_array[*] = 3.4819 * (lorey_array^1.2558)
+; 152		- Canada ecozone 12: Boreal Cordilerra
+		152: agb_array[*] = 0.61335 * (lorey_array^1.8054)
+; 153		- Canada ecozone 9: Boreal plains
+		153: agb_array[*] = 2.1745 * (lorey_array^1.5258)
+; 154		- Canada ecozone 6: Boreal shield
+		154: agb_array[*] = 2.0657 * (lorey_array^1.5548)
+; 155		- Canada ecozone 7: Atlantic maritime
+		155: agb_array[*] = 0.47767 * (lorey_array^2.0538)
+
+; FIA region southern
+;	160		- Southern conifer
+		160: agb_array[*] = 0.8348 * (lorey_array^1.6361)
+;	161		- Southern mixed
+		161: agb_array[*] = 0.31492 * (lorey_array^1.9356)
+;	162		- Southern deciduous
+		162: agb_array[*] = 0.45302 * (lorey_array^1.8352)
+
+; FIA region northeastern:
+;	163		- NE conifer
+		163: agb_array[*] = 1.3888 * (lorey_array^1.5233)
+;	164		- NE mixed
+		164: agb_array[*] = 1.7405 * (lorey_array^1.4644)
+;	165		- NE deciduous
+		165: agb_array[*] = 0.46645 * (lorey_array^1.8872)
+
+; FIA region North central:
+;	166		- NC conifer
+		166: agb_array[*] = 1.1639 * (lorey_array^1.5065)
+;	167		- NC mixed
+		167: agb_array[*] = 1.5657 * (lorey_array^1.3942)
+; 168		- NC deciduous
+		168: agb_array[*] = 0.91856 * (lorey_array^1.579)
+
+; FIA interior west:
+;	169		- IW conifer
+		169: agb_array[*] = 1.198 * (lorey_array^1.5161)
+; 170		- IW mixed
+		170: agb_array[*] = 0.27302 * (lorey_array^2.0351) ;no mixed, use deciduous
+;	171		- IW deciduous
+		171: agb_array[*] = 0.27302 * (lorey_array^2.0351)
+
+; FIA Pacific:
+;	172		- PA conifer
+		172: agb_array[*] = 0.48829 * (lorey_array^1.7894)
+;	173		- PA mixed
+		173: agb_array[*] = 3.1665 * (lorey_array^1.2854); no mixed, use deciduous
+;	174		- PA deciduous
+		174: agb_array[*] = 3.1665 * (lorey_array^1.2854)
+
 
 ;	South America
 ;	30		-	class 40
