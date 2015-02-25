@@ -61,43 +61,56 @@ Function apply_value, lorey_array, type
 
 ; FIA region southern
 ;	160		- Southern conifer
-		160: agb_array[*] = 0.8348 * (lorey_array^1.6361)
+;		160: agb_array[*] = 0.8348 * (lorey_array^1.6361)
+		160: agb_array[*] = (0.8348 * (lorey_array^1.6361) + 0.1 * (lorey_array^2.6366))/2
 ;	161		- Southern mixed
-		161: agb_array[*] = 0.31492 * (lorey_array^1.9356)
+		161: agb_array[*] = (0.31492 * (lorey_array^1.9356) + 0.1 * (lorey_array^2.6366))/2
 ;	162		- Southern deciduous
-		162: agb_array[*] = 0.45302 * (lorey_array^1.8352)
+		162: agb_array[*] = (0.45302 * (lorey_array^1.8352) + 0.1 * (lorey_array^2.6366))/2
 
 ; FIA region northeastern:
 ;	163		- NE conifer
-		163: agb_array[*] = 1.3888 * (lorey_array^1.5233)
+;		163: agb_array[*] = 1.3888 * (lorey_array^1.5233)
+		163: agb_array[*] = (1.3888 * (lorey_array^1.5233) + 0.1 * (lorey_array^2.6911))/2
 ;	164		- NE mixed
-		164: agb_array[*] = 1.7405 * (lorey_array^1.4644)
+;		164: agb_array[*] = 1.7405 * (lorey_array^1.4644)
+		164: agb_array[*] = (1.7405 * (lorey_array^1.4644) + 0.1 * (lorey_array^2.6911))/2
 ;	165		- NE deciduous
-		165: agb_array[*] = 0.46645 * (lorey_array^1.8872)
+;		165: agb_array[*] = 0.46645 * (lorey_array^1.8872)
+		165: agb_array[*] = (0.46645 * (lorey_array^1.8872) + 0.1 * (lorey_array^2.6911))/2
 
 ; FIA region North central:
 ;	166		- NC conifer
-		166: agb_array[*] = 1.1639 * (lorey_array^1.5065)
+;		166: agb_array[*] = 1.1639 * (lorey_array^1.5065)
+		166: agb_array[*] = (1.1639 * (lorey_array^1.5065) + 0.1 * (lorey_array^2.5476))/2
 ;	167		- NC mixed
-		167: agb_array[*] = 1.5657 * (lorey_array^1.3942)
+;		167: agb_array[*] = 1.5657 * (lorey_array^1.3942)
+		167: agb_array[*] = (1.5657 * (lorey_array^1.3942) + 0.1 * (lorey_array^2.5476))/2
 ; 168		- NC deciduous
-		168: agb_array[*] = 0.91856 * (lorey_array^1.579)
+;		168: agb_array[*] = 0.91856 * (lorey_array^1.579)
+		168: agb_array[*] = (0.91856 * (lorey_array^1.579) + 0.1 * (lorey_array^2.5476))/2
 
 ; FIA interior west:
 ;	169		- IW conifer
-		169: agb_array[*] = 1.198 * (lorey_array^1.5161)
+;		169: agb_array[*] = 1.198 * (lorey_array^1.5161)
+		169: agb_array[*] = (1.198 * (lorey_array^1.5161) + 0.2056 * (lorey_array^2.0132))/2
 ; 170		- IW mixed
-		170: agb_array[*] = 0.27302 * (lorey_array^2.0351) ;no mixed, use deciduous
+;		170: agb_array[*] = 0.27302 * (lorey_array^2.0351) ;no mixed, use deciduous
+		170: agb_array[*] = (0.27302 * (lorey_array^2.0351)  + 0.2056 * (lorey_array^2.0132))/2;no mixed, use deciduous
 ;	171		- IW deciduous
-		171: agb_array[*] = 0.27302 * (lorey_array^2.0351)
+;		171: agb_array[*] = 0.27302 * (lorey_array^2.0351)
+		171: agb_array[*] = (0.27302 * (lorey_array^2.0351) + 0.2056 * (lorey_array^2.0132))/2
 
 ; FIA Pacific:
 ;	172		- PA conifer
-		172: agb_array[*] = 0.48829 * (lorey_array^1.7894)
+;		172: agb_array[*] = 0.48829 * (lorey_array^1.7894)
+		172: agb_array[*] = (0.48829 * (lorey_array^1.7894) + 0.1 * (lorey_array^2.2523))/2
 ;	173		- PA mixed
-		173: agb_array[*] = 3.1665 * (lorey_array^1.2854); no mixed, use deciduous
+;		173: agb_array[*] = 3.1665 * (lorey_array^1.2854); no mixed, use deciduous
+		173: agb_array[*] = (3.1665 * (lorey_array^1.2854) + 0.1 * (lorey_array^2.2523))/2; no mixed, use deciduous
 ;	174		- PA deciduous
-		174: agb_array[*] = 3.1665 * (lorey_array^1.2854)
+;		174: agb_array[*] = 3.1665 * (lorey_array^1.2854)
+		174: agb_array[*] = (3.1665 * (lorey_array^1.2854) + 0.1 * (lorey_array^2.2523))/2
 
 
 ;	South America
