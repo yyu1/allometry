@@ -31,19 +31,21 @@ PRO apply_allometry, lorey_file, type_file, out_file
 
 	remainder = tot_pix mod 100
 
-	in_line = fltarr(remainder)
-	in_type = bytarr(remainder)
-	out_line = intarr(remainder)
+	if (remainder gt 0) then begin
+		in_line = fltarr(remainder)
+		in_type = bytarr(remainder)
+		out_line = intarr(remainder)
 
-	readu, lorey_lun, in_line
-	readu, type_lun, in_type
+		readu, lorey_lun, in_line
+		readu, type_lun, in_type
 
-	out_line[*] = fix(in_line)
-	index = where(in_line gt 0, count)
+		out_line[*] = fix(in_line)
+		index = where(in_line gt 0, count)
 
-	if (count gt 0) then out_line[index] = fix(lorey2agb(in_line[index],in_type[index])*10)
+		if (count gt 0) then out_line[index] = fix(lorey2agb(in_line[index],in_type[index])*10)
 
-	writeu, out_lun, out_line
+		writeu, out_lun, out_line
+	endif
 
 	free_lun, lorey_lun, type_lun, out_lun
 
