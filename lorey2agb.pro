@@ -277,6 +277,9 @@ Function lorey2agb, in_lorey, in_type
 
 	out_agb = fltarr(arr_size)
 
+  index = where((in_lorey lt 0), count)
+  if (count gt 0) then out_agb[index] = -1   ;temp fix for some water issues in 3.2sec images
+
 	index = where(in_type ne 0, count)
 
 	if (count gt 0) then begin
