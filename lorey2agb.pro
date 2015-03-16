@@ -64,11 +64,13 @@ Function apply_value, lorey_array, type
 ;		160: agb_array[*] = 0.8348 * (lorey_array^1.6361)
 ;		160: agb_array[*] = (0.8348 * (lorey_array^1.6361) + 0.1 * (lorey_array^2.6366))/2
 ;		160: agb_array[*] = 0.1 * (lorey_array^2.6366)
-		160: agb_array[*] = 0.396 * (lorey_array^2.2) ; from 250m against cms agb at pixel level
+;		160: agb_array[*] = 0.396 * (lorey_array^2.2) ; from 250m against cms agb at pixel level
+		160: agb_array[*] = 3.9896 * (lorey_array^1.3) ; from 250m against cms agb at pixel level
 ;	161		- Southern mixed
 ;		161: agb_array[*] = (0.31492 * (lorey_array^1.9356) + 0.1 * (lorey_array^2.6366))/2
 ;		161: agb_array[*] = 0.1 * (lorey_array^2.6366)
-		161: agb_array[*] = 2.2721 * (lorey_array^1.5)  ; from 250m against cms agb at pixel level
+;		161: agb_array[*] = 2.2721 * (lorey_array^1.5)  ; from 250m against cms agb at pixel level
+		161: agb_array[*] = 2.302 * (lorey_array^1.45)  ; from 250m against cms agb at pixel level
 ;	162		- Southern deciduous
 ;		162: agb_array[*] = (0.45302 * (lorey_array^1.8352) + 0.1 * (lorey_array^2.6366))/2
 ;		162: agb_array[*] = 0.1 * (lorey_array^2.6366)
