@@ -145,7 +145,7 @@ Function apply_value, lorey_array, type
 
 ;	South America
 ;	30		-	class 40
-		30:	agb_array[*] = 0.6011 * (lorey_array^1.894)
+		30:	agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8 ; added sapling
 ;	31		- class 50, 60
 		31:	agb_array[*] = 1.1799 * (lorey_array^1.536)
 ;	32		- class 100
@@ -153,7 +153,7 @@ Function apply_value, lorey_array, type
 ;	33		- class 110, 120, 130
 		33:	agb_array[*] = 2.3053 * (lorey_array^1.3171)
 ;	35		- class 160
-		35:	agb_array[*] = 0.6011 * (lorey_array^1.894)
+		35:	agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8  ;added sapling
 ;	36		-	class 170
 		36:	agb_array[*] = 1.1799 * (lorey_array^1.536)
 ;	37		-	misclass
@@ -181,7 +181,7 @@ Function apply_value, lorey_array, type
 
 ;	Africa
 ;	70		-	class 40
-		70:	agb_array[*] = 0.2788 * (lorey_array^2.12)
+		70:	agb_array[*] = (1-0.01072) * 0.2788 * (lorey_array^2.12) + 16.8 ; added sapling
 ;	71		-	class 50
 		71:	agb_array[*] = 1.1799 * (lorey_array^1.536)
 ;	72		-	class 60
@@ -200,7 +200,7 @@ Function apply_value, lorey_array, type
 		78:	agb_array[*] = 2.3053 * (lorey_array^1.3171)
 ;	79		-	class 160
 		;79:	agb_array[*] = 1.1799 * (lorey_array^1.536)
-		79:	agb_array[*] = 0.2788 * (lorey_array^2.12)
+		79:	agb_array[*] = (1-0.01072) * 0.2788 * (lorey_array^2.12) + 16.8 ; added sapling
 ;	80		-	class 170
 		80:	agb_array[*] = 1.1799 * (lorey_array^1.536)
 ;	81		-	class 180
@@ -210,7 +210,7 @@ Function apply_value, lorey_array, type
 
 ;	Southeast Asia
 ;	90		-	class 40 (tropical rain forest)
-		90:	agb_array[*] = 0.21608 * (lorey_array^2.1604)
+		90:	agb_array[*] = (1-0.034396) * 0.21608 * (lorey_array^2.1604) + 24.263
 ;	91		-	class 50
 		;91: agb_array[*] = 0.061015 * (lorey_array^2.6032)
 		91:	agb_array[*] = 0.26089 * (lorey_array^2.1192) ;changed after removing one outlier (from China)
@@ -232,7 +232,7 @@ Function apply_value, lorey_array, type
 ;	99		-	class 130
 		99:	agb_array[*] = 2.3053 * (lorey_array^1.3171)
 ;	100		-	class 160
-		100:	agb_array[*] = 0.21608 * (lorey_array^2.1604)
+		100:	agb_array[*] = (1-0.034396) * 0.21608 * (lorey_array^2.1604) + 24.263
 ;	101		-	class 170
 		101:	agb_array[*] = 1.1799 * (lorey_array^1.536)
 ;	102		-	class 180
