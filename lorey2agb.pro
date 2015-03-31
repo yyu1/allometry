@@ -170,7 +170,8 @@ Function apply_value, lorey_array, type
 ;	52		-	class 70, 90 west (Norway)
 		52: agb_array[*] = 3.9314 * (lorey_array^1.2103)
 ;	53		- class 70, 90 east (Russia)
-		53:	agb_array[*] = 4.5925 * ((1.0579*(lorey_array^0.92147))^1.1627)
+;		53:	agb_array[*] = 4.5925 * ((1.0579*(lorey_array^0.92147))^1.1627)
+		53: agb_array[*] = 0.2 * (lorey_array^2.2194) ; Guoqing
 ;	54		- class 110, 120, 130   (Pedro Rodriguez-Veiga)
 		54:	agb_array[*] = 1.4243 * (lorey_array^1.595)
 ;	55		- class 160
@@ -249,7 +250,7 @@ Function apply_value, lorey_array, type
 
 ;	Australia
 ;	110		-	class 40
-		110:	agb_array[*] = 0.39194 * (lorey_array^2.1506)
+		110:	agb_array[*] = (1-0.034396) * 0.39194 * (lorey_array^2.1506) + 24.263 ; using sapling from SEA
 ;	111		-	class 50
 		111:	agb_array[*] = 1.1799 * (lorey_array^1.536)
 ;	112		-	class 60
@@ -267,11 +268,29 @@ Function apply_value, lorey_array, type
 ;	118		-	class 130
 		118:	agb_array[*] = 2.3053 * (lorey_array^1.3171)
 ;	119		-	class 160
-		119:	agb_array[*] = 0.39194 * (lorey_array^2.1506)
+		119:	agb_array[*] = (1-0.034396) * 0.39194 * (lorey_array^2.1506) + 24.263 ;using sapling from SEA
 ;	120		-	class 170
 		120:	agb_array[*] = 1.1799 * (lorey_array^1.536)
 ;	121		-	class 180
 		121:	agb_array[*] = 1.1799 * (lorey_array^1.536)
+
+
+;South America Ecozones
+		201: agb_array[*] = (1-0.01072) * 3.1721 * (lorey_array^1.3257) + 16.8 ; use SAM sapling
+		202: agb_array[*] = (1-0.01072) * 3.1721 * (lorey_array^1.3257) + 16.8 ; use SAM sapling
+		203: agb_array[*] = (1-0.01072) * 2.4673 * (lorey_array^1.4706) + 16.8 ; use SAM sapling
+		204: agb_array[*] = (1-0.01072) * 0.23065 * (lorey_array^2.217) + 16.8 ; Use SAM sapling
+		205: agb_array[*] = (1-0.01072) * 0.6011 * (lorey_array^1.894) + 16.8 ; added sapling
+		206: agb_array[*] = (1-0.01072) * 0.2163 * (lorey_array^2.1835) + 16.8 ; Use SAM sapling
+		207: agb_array[*] = (1-0.01072) * 0.6011 * (lorey_array^1.894) + 16.8 ; added sapling
+		208: agb_array[*] = (1-0.01072) * 0.6011 * (lorey_array^1.894) + 16.8 ; added sapling
+		209: agb_array[*] = (1-0.01072) * 0.6011 * (lorey_array^1.894) + 16.8 ; added sapling
+		210: agb_array[*] = (1-0.01072) * 0.95843 * (lorey_array^1.8102) + 16.8
+		211: agb_array[*] = (1-0.01072) * 0.00945 * (lorey_array^3.18566) + 16.8
+		212: agb_array[*] = (1-0.01072) * 3.1721 * (lorey_array^1.3257) + 16.8
+
+ ;Mangrove
+		241: agb_array[*] = 0.6011 * (lorey_array^1.894)   ; Mangroves need updating
 
 	else: agb_array[*] = 0
 
