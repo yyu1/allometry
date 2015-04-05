@@ -1,4 +1,4 @@
-PRO apply_allometry, lorey_file, type_file, out_file
+PRO apply_allometry, lorey_file, type_file, out_agb_file, out_bgb_file
 	openr, lorey_lun, lorey_file, /get_lun
 	openr, type_lun, type_file, /get_lun
 
