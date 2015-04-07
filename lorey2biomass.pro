@@ -68,14 +68,14 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;	19		- mexico tropical dry broadleaf
 		19:	begin
 			agb_array[*] = 0.24888 * ((1.4635 * (lorey_array^0.80925))^2.4469) ; changed after removing outliers
-			index = where(agb_array lt 20, complement=index2, ncomplement=count2)
+			index = where(agb_array lt 20, count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.563 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.275 * agb_array[index2]
 		end
 ;	20		- mexico tropical conifer
 		20:	begin
 			agb_array[*] = 6.4389 * ((1.4635 * (lorey_array^0.80925))^1.0556)
-			index = where(agb_array lt 20, complement=index2, ncomplement=count2)
+			index = where(agb_array lt 20, count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.563 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.275 * agb_array[index2]
 		end
