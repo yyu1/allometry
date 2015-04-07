@@ -14,18 +14,22 @@ PRO apply_allometry, lorey_file, type_file, out_agb_file, out_bgb_file
 
 	in_line = fltarr(read_pix)
 	in_type = bytarr(read_pix)
-	out_line = intarr(read_pix)
+	out_agb_line = intarr(read_pix)
 
 	for i=0, 99 do begin
 		print, i
 		readu, lorey_lun, in_line
 		readu, type_lun, in_type
 
-		out_line[*] = fix(in_line)
+		out_agb_line[*] = fix(in_line)
 		index = where(in_line gt 0, count)
 
-		if (count gt 0) then out_line[index] = fix(lorey2agb(in_line[index],in_type[index])*10)
-
+		if (count gt 0) then begin
+			agb_temp = fltarr(count)
+			bgb_temp = fltarr(count)
+			lorey2biomass,in_line[index],in_type[index],agb_temp,bgb_temp
+			out_agb_line[index] = fix(agb_temp*10)
+		endif
 		writeu, out_lun, out_line
 	endfor
 
@@ -34,15 +38,20 @@ PRO apply_allometry, lorey_file, type_file, out_agb_file, out_bgb_file
 	if (remainder gt 0) then begin
 		in_line = fltarr(remainder)
 		in_type = bytarr(remainder)
-		out_line = intarr(remainder)
+		out_agb_line = intarr(remainder)
 
 		readu, lorey_lun, in_line
 		readu, type_lun, in_type
 
-		out_line[*] = fix(in_line)
+		out_agb_line[*] = fix(in_line)
 		index = where(in_line gt 0, count)
 
-		if (count gt 0) then out_line[index] = fix(lorey2agb(in_line[index],in_type[index])*10)
+		if (count gt 0) then begin
+			agb_temp = fltarr(remainder)
+			bgb_temp = fltarr(remainder)
+			lorey2biomass,in_line[index],in_type[index],agb_temp,bgb_temp
+			out_agb_line[index] = fix(agb_temp*10)
+		endif
 
 		writeu, out_lun, out_line
 	endif
