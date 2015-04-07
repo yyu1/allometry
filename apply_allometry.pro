@@ -2,7 +2,7 @@ PRO apply_allometry, lorey_file, type_file, out_agb_file, out_bgb_file
 	openr, lorey_lun, lorey_file, /get_lun
 	openr, type_lun, type_file, /get_lun
 
-	openw, out_lun, out_file, /get_lun
+	openw, out_agb_lun, out_agb_file, /get_lun
 
 	infile_info = file_info(lorey_file)
 
@@ -30,7 +30,7 @@ PRO apply_allometry, lorey_file, type_file, out_agb_file, out_bgb_file
 			lorey2biomass,in_line[index],in_type[index],agb_temp,bgb_temp
 			out_agb_line[index] = fix(agb_temp*10)
 		endif
-		writeu, out_lun, out_line
+		writeu, out_agb_lun, out_line
 	endfor
 
 	remainder = tot_pix mod 100
@@ -53,10 +53,10 @@ PRO apply_allometry, lorey_file, type_file, out_agb_file, out_bgb_file
 			out_agb_line[index] = fix(agb_temp*10)
 		endif
 
-		writeu, out_lun, out_line
+		writeu, out_agb_lun, out_line
 	endif
 
-	free_lun, lorey_lun, type_lun, out_lun
+	free_lun, lorey_lun, type_lun, out_agb_lun
 
 
 END
