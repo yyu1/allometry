@@ -70,14 +70,14 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 			agb_array[*] = 0.24888 * ((1.4635 * (lorey_array^0.80925))^2.4469) ; changed after removing outliers
 			index = where(agb_array lt 20, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.563 * agb_array[index]
-			if (count2 gt 0) then bgb_array[index2] = 0.275 * agb_array[index]
+			if (count2 gt 0) then bgb_array[index2] = 0.275 * agb_array[index2]
 		end
 ;	20		- mexico tropical conifer
 		20:	begin
 			agb_array[*] = 6.4389 * ((1.4635 * (lorey_array^0.80925))^1.0556)
 			index = where(agb_array lt 20, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.563 * agb_array[index]
-			if (count2 gt 0) then bgb_array[index2] = 0.275 * agb_array[index]
+			if (count2 gt 0) then bgb_array[index2] = 0.275 * agb_array[index2]
 		end
 ; 21		- boreal mixed
 		21: begin
@@ -100,7 +100,7 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 			agb_array[*] = 1.5248 * (lorey_array^1.5512)
 			index = where(agb_array lt 75, count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.392 * agb_array[index]
-			if (count2 gt 0) then bgb_array[index2] = 0.239 * agb_array[index]
+			if (count2 gt 0) then bgb_array[index2] = 0.239 * agb_array[index2]
 		end
 ; 151   - Canada ecozone 13: Pacific Maritime
 		151: begin
@@ -117,21 +117,21 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 			agb_array[*] = 0.61335 * (lorey_array^1.8054)
 			index = where(agb_array lt 75, count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.392 * agb_array[index]
-			if (count2 gt 0) then bgb_array[index2] = 0.239 * agb_array[index]
+			if (count2 gt 0) then bgb_array[index2] = 0.239 * agb_array[index2]
 		end
 ; 153		- Canada ecozone 9: Boreal plains
 		153: begin
 			agb_array[*] = 2.1745 * (lorey_array^1.5258)
 			index = where(agb_array lt 75, count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.392 * agb_array[index]
-			if (count2 gt 0) then bgb_array[index2] = 0.239 * agb_array[index]
+			if (count2 gt 0) then bgb_array[index2] = 0.239 * agb_array[index2]
 		end
 ; 154		- Canada ecozone 6: Boreal shield
 		154: begin
 			agb_array[*] = 2.0657 * (lorey_array^1.5548)
 			index = where(agb_array lt 75, count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.392 * agb_array[index]
-			if (count2 gt 0) then bgb_array[index2] = 0.239 * agb_array[index]
+			if (count2 gt 0) then bgb_array[index2] = 0.239 * agb_array[index2]
 		end
 ; 155		- Canada ecozone 7: Atlantic maritime
 		155: begin
@@ -343,7 +343,7 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 			agb_array[*] = 3.9314 * (lorey_array^1.2103)
 			index = where(agb_array lt 145, count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.23803*agb_array[index]
-			if (count2 gt 0) then bgb_array[index2] = 1.7071 + 0.21461 * agb_array[index]
+			if (count2 gt 0) then bgb_array[index2] = 1.7071 + 0.21461 * agb_array[index2]
 		end
 ;	53		- class 70, 90 east (Russia)
 ;		53:	agb_array[*] = 4.5925 * ((1.0579*(lorey_array^0.92147))^1.1627)
@@ -351,7 +351,7 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 			agb_array[*] = 0.2 * (lorey_array^2.2194) ; Guoqing
 			index = where(agb_array lt 75, count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.392 * agb_array[index]
-			if (count2 gt 0) then bgb_array[index2] = 0.239 * agb_array[index]
+			if (count2 gt 0) then bgb_array[index2] = 0.239 * agb_array[index2]
 		end
 ;	54		- class 110, 120, 130   (Pedro Rodriguez-Veiga)
 		54:	begin
@@ -734,12 +734,12 @@ PRO lorey2biomass, in_lorey, in_type, agb_array, bgb_array
 		n_types = n_elements(uniq_types)
 
 		for i=0, n_types-1 do begin
-			index = where(in_type eq uniq_types[i], count_temp)
+			index2 = where(in_type eq uniq_types[i], count_temp)
 			agb_temp = fltarr(count_temp)
 			bgb_temp = fltarr(count_temp)
-			apply_value, in_lorey[index],uniq_types[i], agb_temp, bgb_temp
-			agb_array[index] = agb_temp
-			bgb_array[index] = bgb_temp
+			apply_value, in_lorey[index2],uniq_types[i], agb_temp, bgb_temp
+			agb_array[index2] = agb_temp
+			bgb_array[index2] = bgb_temp
 		endfor
 	endif
 
