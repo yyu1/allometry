@@ -701,7 +701,7 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 
  ;Mangrove
 		241: begin
-			agb_array[*] = 0.6011 * (lorey_array^1.894)   ; Mangroves need updating
+			agb_array[*] = 0.7067 * (lorey_array^1.7862)   ; using 11 0.04ha plots in Africa
 			bgb_array[*] = 0.4 * agb_array
 		end
 
