@@ -627,25 +627,29 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 
 ;South America Ecozones
 		201: begin
-			agb_array[*] = (1-0.01072) * 3.1721 * (lorey_array^1.3257) + 16.8 ; use SAM sapling
+			;agb_array[*] = (1-0.01072) * 3.1721 * (lorey_array^1.3257) + 16.8 ; use SAM sapling
+			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8 ; temporarily use general sam equation
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
 		end
 		202: begin
-			agb_array[*] = (1-0.01072) * 3.1721 * (lorey_array^1.3257) + 16.8 ; use SAM sapling
+			;agb_array[*] = (1-0.01072) * 3.1721 * (lorey_array^1.3257) + 16.8 ; use SAM sapling
+			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8 ; temporarily use general sam equation
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
 		end
 		203: begin
-			agb_array[*] = (1-0.01072) * 2.4673 * (lorey_array^1.4706) + 16.8 ; use SAM sapling
+			;agb_array[*] = (1-0.01072) * 2.4673 * (lorey_array^1.4706) + 16.8 ; use SAM sapling
+			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8 ; temporarily use general sam equation
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
 		end
 		204: begin
-			agb_array[*] = (1-0.01072) * 0.23065 * (lorey_array^2.217) + 16.8 ; Use SAM sapling
+			;agb_array[*] = (1-0.01072) * 0.23065 * (lorey_array^2.217) + 16.8 ; Use SAM sapling
+			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8 ; temporarily use general sam equation
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
@@ -657,7 +661,8 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
 		end
 		206: begin
-			agb_array[*] = (1-0.01072) * 0.2163 * (lorey_array^2.1835) + 16.8 ; Use SAM sapling
+			;agb_array[*] = (1-0.01072) * 0.2163 * (lorey_array^2.1835) + 16.8 ; Use SAM sapling
+			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8 ; temporarily use general sam equation
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
@@ -681,19 +686,22 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
 		end
 		210: begin
-			agb_array[*] = (1-0.01072) * 0.95843 * (lorey_array^1.8102) + 16.8
+			;agb_array[*] = (1-0.01072) * 0.95843 * (lorey_array^1.8102) + 16.8
+			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8 ; temporarily use general sam equation
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
 		end
 		211: begin
-			agb_array[*] = (1-0.01072) * 0.00945 * (lorey_array^3.18566) + 16.8
+			;agb_array[*] = (1-0.01072) * 0.00945 * (lorey_array^3.18566) + 16.8
+			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8 ; temporarily use general sam equation
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
 		end
 		212: begin
-			agb_array[*] = (1-0.01072) * 3.1721 * (lorey_array^1.3257) + 16.8
+			;agb_array[*] = (1-0.01072) * 3.1721 * (lorey_array^1.3257) + 16.8
+			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8 ; temporarily use general sam equation
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
