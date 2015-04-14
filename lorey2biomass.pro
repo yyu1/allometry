@@ -50,7 +50,8 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 		end
 ;	16		- class 110, 120, 130
 		16:	begin
-			agb_array[*] = 1.3403 * (lorey_array^1.4694)
+;			agb_array[*] = 1.3403 * (lorey_array^1.4694)
+			agb_array[*] = 3.4559 * (lorey_array^1.1)
 			bgb_array[*] = 0.322 * agb_array
 		end
 ;	17		- class 160
@@ -151,7 +152,9 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;		160: agb_array[*] = 0.1 * (lorey_array^2.6366)
 ;		160: agb_array[*] = 0.396 * (lorey_array^2.2) ; from 250m against cms agb at pixel level
 		160: begin
-			agb_array[*] = 3.9896 * (lorey_array^1.3) ; from 250m against cms agb at pixel level
+;			agb_array[*] = 3.9896 * (lorey_array^1.3) ; from 250m against cms agb at pixel level
+;			agb_array[*] = 1.3841 * (lorey_array^1.7)
+			agb_array[*] = 0.37396 * (lorey_array^2.2)
 			bgb_array[*] = 0.22371 * agb_array
 		end
 ;	161		- Southern mixed
@@ -159,14 +162,21 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;		161: agb_array[*] = 0.1 * (lorey_array^2.6366)
 ;		161: agb_array[*] = 2.2721 * (lorey_array^1.5)  ; from 250m against cms agb at pixel level
 		161: begin
-			agb_array[*] = 2.302 * (lorey_array^1.45)  ; from 250m against cms agb at pixel level
+;			agb_array[*] = 2.302 * (lorey_array^1.45)  ; from 250m against cms agb at pixel level
+;			agb_array[*] = 1.6654 * (lorey_array^1.6)
+			agb_array[*] = 0.33781 * (lorey_array^2.2)
 			bgb_array[*] = 0.20844 * agb_array
 		end
 ;	162		- Southern deciduous
 ;		162: agb_array[*] = (0.45302 * (lorey_array^1.8352) + 0.1 * (lorey_array^2.6366))/2
 ;		162: agb_array[*] = 0.1 * (lorey_array^2.6366)
 		162: begin
-			agb_array[*] = 0.2 * (lorey_array^2.3)  ; from 250m against cms agb at pixel level
+;			agb_array[*] = 0.2 * (lorey_array^2.3)  ; from 250m against cms agb at pixel level
+			agb_array[*] = 1.9236 * (lorey_array^1.5)
+;			agb_array[*] = 0.0044412 * (lorey_array^3.7)
+;			agb_array[*] = 0.12507 * (lorey_array^2.5)
+			index = where(agb_array gt 300, count)
+			if (count gt 0) then agb_array[index] = 300
 			bgb_array[*] = 0.19621 * agb_array
 		end
 
@@ -176,7 +186,8 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;		163: agb_array[*] = (1.3888 * (lorey_array^1.5233) + 0.1 * (lorey_array^2.6911))/2
 ;		163: agb_array[*] = 0.1 * (lorey_array^2.6911)
 		163: begin
-			agb_array[*] = 2.35 * (lorey_array^1.55)  ; from 250m against cms agb at pixel level
+;			agb_array[*] = 2.35 * (lorey_array^1.55)  ; from 250m against cms agb at pixel level
+			agb_array[*] = 1.7023 * (lorey_array^1.7)
 			bgb_array[*] = 0.22149 * agb_array
 		end
 ;	164		- NE mixed
@@ -184,7 +195,8 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;		164: agb_array[*] = (1.7405 * (lorey_array^1.4644) + 0.1 * (lorey_array^2.6911))/2
 ;		164: agb_array[*] = 0.1 * (lorey_array^2.6911)
 		164: begin
-			agb_array[*] = 0.3 * (lorey_array^2.37)  ; from 250m against cms agb at pixel level
+;			agb_array[*] = 0.3 * (lorey_array^2.37)  ; from 250m against cms agb at pixel level
+			agb_array[*] = 2.0486 * (lorey_array^1.6)
 			bgb_array[*] = 0.20753 * agb_array
 		end
 ;	165		- NE deciduous
@@ -192,7 +204,9 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;		165: agb_array[*] = (0.46645 * (lorey_array^1.8872) + 0.1 * (lorey_array^2.6911))/2
 ;		165: agb_array[*] = 0.1 * (lorey_array^2.6911)
 		165: begin
-			agb_array[*] = 4.13 * (lorey_array^1.3)  ; from 250m against cms agb at pixel level
+;			agb_array[*] = 4.13 * (lorey_array^1.3)  ; from 250m against cms agb at pixel level
+;			agb_array[*] = 1.8431 * (lorey_array^1.6)
+			agb_array[*] = 2.4096 * (lorey_array^1.5)
 			bgb_array[*] = 0.19677 * agb_array
 		end
 
@@ -202,7 +216,8 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;		166: agb_array[*] = (1.1639 * (lorey_array^1.5065) + 0.1 * (lorey_array^2.5476))/2
 ;		166: agb_array[*] = 0.1 * (lorey_array^2.5476)
 		166: begin
-			agb_array[*] = 0.588 * (lorey_array^1.8661)  ; from 250m against cms agb at pixel level
+;			agb_array[*] = 0.588 * (lorey_array^1.8661)  ; from 250m against cms agb at pixel level
+			agb_array[*] = 0.59293 * (lorey_array^1.8565)
 			bgb_array[*] = 0.22544 * agb_array
 		end
 ;	167		- NC mixed
@@ -210,7 +225,8 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;		167: agb_array[*] = (1.5657 * (lorey_array^1.3942) + 0.1 * (lorey_array^2.5476))/2
 ;		167: agb_array[*] = 0.1 * (lorey_array^2.5476)
 		167: begin
-			agb_array[*] = 0.1 * (lorey_array^2.65)  ; from 250m against cms agb at pixel level
+;			agb_array[*] = 0.1 * (lorey_array^2.65)  ; from 250m against cms agb at pixel level
+			agb_array[*] = 0.62651 * (lorey_array^1.9)
 			bgb_array[*] = 0.20916 * agb_array
 		end
 ; 168		- NC deciduous
@@ -218,7 +234,8 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;		168: agb_array[*] = (0.91856 * (lorey_array^1.579) + 0.1 * (lorey_array^2.5476))/2
 ;		168: agb_array[*] = 0.1 * (lorey_array^2.5476)
 		168: begin
-			agb_array[*] = 1.6145 * (lorey_array^1.5)  ; from 250m against cms agb at pixel level
+;			agb_array[*] = 1.6145 * (lorey_array^1.5)  ; from 250m against cms agb at pixel level
+			agb_array[*] = 1.6267 * (lorey_array^1.5)
 			bgb_array[*] = 0.19684 * agb_array
 		end
 
@@ -230,7 +247,9 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;		169: agb_array[*] = 1.38 * (lorey_array^1.5)  ; from 250m against cms agb at pixel level
 ;		169: agb_array[*] = 3.1429 * (lorey_array^1.2)  ; from 250m against cms agb at pixel level
 		169: begin
-			agb_array[*] = 4.2158 * (lorey_array^1.05)  ; from 250m against cms agb at pixel level
+;			agb_array[*] = 4.2158 * (lorey_array^1.05)  ; from 250m against cms agb at pixel level
+;			agb_array[*] = 1.38 * (lorey_array^1.5)
+			agb_array[*] = 1.7203 * (lorey_array^1.3)
 			bgb_array[*] = 0.22797 * agb_array
 		end
 ; 170		- IW mixed
@@ -238,7 +257,8 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;		170: agb_array[*] = (0.27302 * (lorey_array^2.0351)  + 0.2056 * (lorey_array^2.0132))/2;no mixed, use deciduous
 ;		170: agb_array[*] = 0.2056 * (lorey_array^2.0132);no mixed, use deciduous
 		170: begin
-			agb_array[*] = 3.486 * (lorey_array^1.2)  ; from 250m against cms agb at pixel level
+;			agb_array[*] = 3.486 * (lorey_array^1.2)  ; from 250m against cms agb at pixel level
+			agb_array[*] = 1.8141 * (lorey_array^1.3)
 			bgb_array[*] = 0.20634 * agb_array
 		end
 ;	171		- IW deciduous
@@ -246,7 +266,8 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;		171: agb_array[*] = (0.27302 * (lorey_array^2.0351) + 0.2056 * (lorey_array^2.0132))/2
 ;		171: agb_array[*] = 0.2056 * (lorey_array^2.0132)
 		171: begin
-			agb_array[*] = 3.486 * (lorey_array^1.2)  ; from 250m against cms agb at pixel level
+;			agb_array[*] = 3.486 * (lorey_array^1.2)  ; from 250m against cms agb at pixel level
+			agb_array[*] = 0.98583 * (lorey_array^1.6)
 			bgb_array[*] = 0.20634 * agb_array
 		end
 
@@ -257,7 +278,10 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;		172: agb_array[*] = 0.1 * (lorey_array^2.2523)
 ;		172: agb_array[*] = 0.3 * (lorey_array^2.05)  ; from 250m against cms agb at pixel level
 		172: begin
-			agb_array[*] = 2.8295* (lorey_array^1.3)  ; from 250m against cms agb at pixel level
+;			agb_array[*] = 2.8295* (lorey_array^1.3)  ; from 250m against cms agb at pixel level
+;			agb_array[*] = 0.48829 * (lorey_array^1.7894)
+;			agb_array[*] = 0.94289 * (lorey_array^1.6)
+			agb_array[*] = 0.05 * (lorey_array^2.4733)
 			bgb_array[*] = 0.22394 * agb_array
 		end
 ;	173		- PA mixed
@@ -265,7 +289,9 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;		173: agb_array[*] = (3.1665 * (lorey_array^1.2854) + 0.1 * (lorey_array^2.2523))/2; no mixed, use deciduous
 ;		173: agb_array[*] = 0.1 * (lorey_array^2.2523); no mixed, use deciduous
 		173: begin
-			agb_array[*] = 5.4311 * (lorey_array^1.1)  ; from 250m against cms agb at pixel level no mixed, use deciduous
+;			agb_array[*] = 5.4311 * (lorey_array^1.1)  ; from 250m against cms agb at pixel level no mixed, use deciduous
+;			agb_array[*] = (3.9131 * (lorey_array^1.3) + 0.05 * (lorey_array^2.4733)) / 2
+			agb_array[*] = 0.05 * (lorey_array^2.4733)
 			bgb_array[*] = 0.20541 * agb_array
 		end
 ;	174		- PA deciduous
@@ -273,7 +299,8 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;		174: agb_array[*] = (3.1665 * (lorey_array^1.2854) + 0.1 * (lorey_array^2.2523))/2
 ;		174: agb_array[*] = 0.1 * (lorey_array^2.2523)
 		174: begin
-			agb_array[*] = 5.4311 * (lorey_array^1.1)  ; from 250m against cms agb at pixel level
+;			agb_array[*] = 5.4311 * (lorey_array^1.1)  ; from 250m against cms agb at pixel level
+			agb_array[*] = 3.9131 * (lorey_array^1.3)
 			bgb_array[*] = 0.20541 * agb_array
 		end
 	
