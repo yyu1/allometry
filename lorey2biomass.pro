@@ -508,7 +508,10 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 		end
 ;	93		-	class 40 (nepal)
 		93:	begin
-			agb_array[*] = 7.7413 * (lorey_array^1.3155)
+;			agb_array[*] = 7.7413 * (lorey_array^1.3155)
+			agb_array[*] = 8.4726 * (lorey_array^1.2857)
+			index = where(agb_array gt 600, count)
+			if (count gt 0) then agb_array[index] = 600
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
@@ -517,6 +520,8 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;		94:	agb_array[*] = 0.69646 * (lorey_array^2.1062)
 		94:	begin
 			agb_array[*] = 0.68255 * (lorey_array^1.6939)  ;temp use regular value because Nepal eq gives too high AGB
+			index = where(agb_array gt 450, count)
+			if (count gt 0) then agb_array[index] = 450
 			bgb_array[*] = 0.22149 * agb_array
 		end
 ;	95		-	class 90
