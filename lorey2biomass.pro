@@ -480,6 +480,7 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;	90		-	class 40 (tropical rain forest)
 		90:	begin
 			agb_array[*] = (1-0.034396) * 0.21608 * (lorey_array^2.1604) + 24.263
+			;agb_array[*] = 1.05 * (0.61/0.6) * (0.2788 * (lorey_array^2.12))  ;temporary allometry to test Saatchi pantropic map
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
@@ -552,6 +553,7 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;	100		-	class 160
 		100:	begin
 			agb_array[*] = (1-0.034396) * 0.21608 * (lorey_array^2.1604) + 24.263
+			;agb_array[*] = 1.05 * (0.61/0.6) * (0.2788 * (lorey_array^2.12))  ;temporary allometry to test Saatchi pantropic map
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
