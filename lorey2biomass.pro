@@ -11,6 +11,8 @@
 ;
 Pro apply_value, lorey_array, type, agb_array, bgb_array
 
+MAX_AGB = 650
+
 ;agb_array and bgb_array are for output and are modified in the procedure
 
 	;agb_array = fltarr(n_elements(lorey_array))
@@ -23,89 +25,89 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;	North America
 ;	10    -	class 40
 		10: begin 
-			agb_array[*] = 0.6011 * (lorey_array^1.894)
+			agb_array[*] = 0.6011 * (lorey_array^1.894) < MAX_AGB
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
 		end
 ;	11		-	class 50, 60
 		11:	begin
-			agb_array[*] = 1.1799 * (lorey_array^1.536)
+			agb_array[*] = 1.1799 * (lorey_array^1.536) < MAX_AGB
 			bgb_array[*] = 0.19677 * agb_array
 		end
 ;	13		- class 70, 90 east
 		13:	begin
-			agb_array[*] = 0.68255 * (lorey_array^1.6939)
+			agb_array[*] = 0.68255 * (lorey_array^1.6939) < MAX_AGB
 			bgb_array[*] = 0.22149 * agb_array
 		end
 ;	14		- class 70, 90 west
 		14:	begin
-			agb_array[*] = 0.71774 * (lorey_array^1.6892)
+			agb_array[*] = 0.71774 * (lorey_array^1.6892) < MAX_AGB
 			bgb_array[*] = 0.22394 * agb_array
 		end
 ;	15		- class 100
 		15:	begin
-			agb_array[*] = 0.689 * (lorey_array^1.6932)
+			agb_array[*] = 0.689 * (lorey_array^1.6932) < MAX_AGB
 			bgb_array[*] = 0.20844 * agb_array
 		end
 ;	16		- class 110, 120, 130
 		16:	begin
 ;			agb_array[*] = 1.3403 * (lorey_array^1.4694)
-			agb_array[*] = 3.4559 * (lorey_array^1.1)
+			agb_array[*] = 3.4559 * (lorey_array^1.1) < MAX_AGB
 			bgb_array[*] = 0.322 * agb_array
 		end
 ;	17		- class 160
 		17:	begin
-			agb_array[*] = 1.799 * (lorey_array^1.536)
+			agb_array[*] = 1.799 * (lorey_array^1.536) < MAX_AGB
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
 		end
 ;	18		- class 170
 		18:	begin
-			agb_array[*] = 1.799 * (lorey_array^1.536)
+			agb_array[*] = 1.799 * (lorey_array^1.536) < MAX_AGB
 			bgb_array[*] = 0.642 * agb_array
 		end
 ;	19		- mexico tropical dry broadleaf
 		19:	begin
-			agb_array[*] = 0.24888 * ((1.4635 * (lorey_array^0.80925))^2.4469) ; changed after removing outliers
+			agb_array[*] = 0.24888 * ((1.4635 * (lorey_array^0.80925))^2.4469)  < MAX_AGB; changed after removing outliers
 			index = where(agb_array lt 20, count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.563 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.275 * agb_array[index2]
 		end
 ;	20		- mexico tropical conifer
 		20:	begin
-			agb_array[*] = 6.4389 * ((1.4635 * (lorey_array^0.80925))^1.0556)
+			agb_array[*] = 6.4389 * ((1.4635 * (lorey_array^0.80925))^1.0556) < MAX_AGB
 			index = where(agb_array lt 20, count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.563 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.275 * agb_array[index2]
 		end
 ; 21		- boreal mixed
 		21: begin
-			agb_array[*] = 3.6407 * (lorey_array^1.2722)
+			agb_array[*] = 3.6407 * (lorey_array^1.2722) < MAX_AGB
 			bgb_array[*] = 0.22544 * agb_array
 		end
 ; 22		- temperate savanna 
 		22: begin
-			agb_array[*] = 1.3403 * (lorey_array^1.4694)
+			agb_array[*] = 1.3403 * (lorey_array^1.4694) < MAX_AGB
 			bgb_array[*] = 0.642 * agb_array
 		end
 ; 23		- mediterranean
 		23: begin
-			agb_array[*] = 2.3053 * (lorey_array^1.3171)
+			agb_array[*] = 2.3053 * (lorey_array^1.3171) < MAX_AGB
 			bgb_array[*] = 0.322 * agb_array
 		end
 
 ; 150   - Canada ecozone 14: Montane Cordillera
 		150: begin
-			agb_array[*] = 1.5248 * (lorey_array^1.5512)
+			agb_array[*] = 1.5248 * (lorey_array^1.5512) < MAX_AGB
 			index = where(agb_array lt 75, count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.392 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.239 * agb_array[index2]
 		end
 ; 151   - Canada ecozone 13: Pacific Maritime
 		151: begin
-			agb_array[*] = 3.4819 * (lorey_array^1.2558)
+			agb_array[*] = 3.4819 * (lorey_array^1.2558) < MAX_AGB
 			index = where(agb_array lt 50, count)
 			if (count gt 0) then bgb_array[index] = 0.403 * agb_array[index]
 			index = where((agb_array ge 50) and (agb_array lt 150), count)
@@ -115,28 +117,28 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 		end
 ; 152		- Canada ecozone 12: Boreal Cordillerra
 		152: begin
-			agb_array[*] = 0.61335 * (lorey_array^1.8054)
+			agb_array[*] = 0.61335 * (lorey_array^1.8054) < MAX_AGB
 			index = where(agb_array lt 75, count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.392 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.239 * agb_array[index2]
 		end
 ; 153		- Canada ecozone 9: Boreal plains
 		153: begin
-			agb_array[*] = 2.1745 * (lorey_array^1.5258)
+			agb_array[*] = 2.1745 * (lorey_array^1.5258) < MAX_AGB
 			index = where(agb_array lt 75, count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.392 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.239 * agb_array[index2]
 		end
 ; 154		- Canada ecozone 6: Boreal shield
 		154: begin
-			agb_array[*] = 2.0657 * (lorey_array^1.5548)
+			agb_array[*] = 2.0657 * (lorey_array^1.5548) < MAX_AGB
 			index = where(agb_array lt 75, count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.392 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.239 * agb_array[index2]
 		end
 ; 155		- Canada ecozone 7: Atlantic maritime
 		155: begin
-			agb_array[*] = 0.47767 * (lorey_array^2.0538)
+			agb_array[*] = 0.47767 * (lorey_array^2.0538) < MAX_AGB
 			index = where(agb_array lt 50, count)
 			if (count gt 0) then bgb_array[index] = 0.403 * agb_array[index]
 			index = where((agb_array ge 50) and (agb_array lt 150), count)
@@ -154,7 +156,7 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 		160: begin
 ;			agb_array[*] = 3.9896 * (lorey_array^1.3) ; from 250m against cms agb at pixel level
 ;			agb_array[*] = 1.3841 * (lorey_array^1.7)
-			agb_array[*] = 0.37396 * (lorey_array^2.2)
+			agb_array[*] = 0.37396 * (lorey_array^2.2) < MAX_AGB
 			bgb_array[*] = 0.22371 * agb_array
 		end
 ;	161		- Southern mixed
@@ -164,7 +166,7 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 		161: begin
 ;			agb_array[*] = 2.302 * (lorey_array^1.45)  ; from 250m against cms agb at pixel level
 ;			agb_array[*] = 1.6654 * (lorey_array^1.6)
-			agb_array[*] = 0.33781 * (lorey_array^2.2)
+			agb_array[*] = 0.33781 * (lorey_array^2.2) < MAX_AGB
 			bgb_array[*] = 0.20844 * agb_array
 		end
 ;	162		- Southern deciduous
@@ -172,7 +174,7 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;		162: agb_array[*] = 0.1 * (lorey_array^2.6366)
 		162: begin
 ;			agb_array[*] = 0.2 * (lorey_array^2.3)  ; from 250m against cms agb at pixel level
-			agb_array[*] = 1.9236 * (lorey_array^1.5)
+			agb_array[*] = 1.9236 * (lorey_array^1.5) < MAX_AGB
 ;			agb_array[*] = 0.0044412 * (lorey_array^3.7)
 ;			agb_array[*] = 0.12507 * (lorey_array^2.5)
 			index = where(agb_array gt 300, count)
@@ -187,7 +189,7 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;		163: agb_array[*] = 0.1 * (lorey_array^2.6911)
 		163: begin
 ;			agb_array[*] = 2.35 * (lorey_array^1.55)  ; from 250m against cms agb at pixel level
-			agb_array[*] = 1.7023 * (lorey_array^1.7)
+			agb_array[*] = 1.7023 * (lorey_array^1.7) < MAX_AGB
 			bgb_array[*] = 0.22149 * agb_array
 		end
 ;	164		- NE mixed
@@ -196,7 +198,7 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;		164: agb_array[*] = 0.1 * (lorey_array^2.6911)
 		164: begin
 ;			agb_array[*] = 0.3 * (lorey_array^2.37)  ; from 250m against cms agb at pixel level
-			agb_array[*] = 2.0486 * (lorey_array^1.6)
+			agb_array[*] = 2.0486 * (lorey_array^1.6) < MAX_AGB
 			bgb_array[*] = 0.20753 * agb_array
 		end
 ;	165		- NE deciduous
@@ -206,7 +208,7 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 		165: begin
 ;			agb_array[*] = 4.13 * (lorey_array^1.3)  ; from 250m against cms agb at pixel level
 ;			agb_array[*] = 1.8431 * (lorey_array^1.6)
-			agb_array[*] = 2.4096 * (lorey_array^1.5)
+			agb_array[*] = 2.4096 * (lorey_array^1.5) < MAX_AGB
 			bgb_array[*] = 0.19677 * agb_array
 		end
 
@@ -217,7 +219,7 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;		166: agb_array[*] = 0.1 * (lorey_array^2.5476)
 		166: begin
 ;			agb_array[*] = 0.588 * (lorey_array^1.8661)  ; from 250m against cms agb at pixel level
-			agb_array[*] = 0.59293 * (lorey_array^1.8565)
+			agb_array[*] = 0.59293 * (lorey_array^1.8565) < MAX_AGB
 			bgb_array[*] = 0.22544 * agb_array
 		end
 ;	167		- NC mixed
@@ -226,7 +228,7 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;		167: agb_array[*] = 0.1 * (lorey_array^2.5476)
 		167: begin
 ;			agb_array[*] = 0.1 * (lorey_array^2.65)  ; from 250m against cms agb at pixel level
-			agb_array[*] = 0.62651 * (lorey_array^1.9)
+			agb_array[*] = 0.62651 * (lorey_array^1.9) < MAX_AGB
 			bgb_array[*] = 0.20916 * agb_array
 		end
 ; 168		- NC deciduous
@@ -235,7 +237,7 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;		168: agb_array[*] = 0.1 * (lorey_array^2.5476)
 		168: begin
 ;			agb_array[*] = 1.6145 * (lorey_array^1.5)  ; from 250m against cms agb at pixel level
-			agb_array[*] = 1.6267 * (lorey_array^1.5)
+			agb_array[*] = 1.6267 * (lorey_array^1.5) < MAX_AGB
 			bgb_array[*] = 0.19684 * agb_array
 		end
 
@@ -249,7 +251,7 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 		169: begin
 ;			agb_array[*] = 4.2158 * (lorey_array^1.05)  ; from 250m against cms agb at pixel level
 ;			agb_array[*] = 1.38 * (lorey_array^1.5)
-			agb_array[*] = 1.7203 * (lorey_array^1.3)
+			agb_array[*] = 1.7203 * (lorey_array^1.3) < MAX_AGB
 			bgb_array[*] = 0.22797 * agb_array
 		end
 ; 170		- IW mixed
@@ -258,7 +260,7 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;		170: agb_array[*] = 0.2056 * (lorey_array^2.0132);no mixed, use deciduous
 		170: begin
 ;			agb_array[*] = 3.486 * (lorey_array^1.2)  ; from 250m against cms agb at pixel level
-			agb_array[*] = 1.8141 * (lorey_array^1.3)
+			agb_array[*] = 1.8141 * (lorey_array^1.3) < MAX_AGB
 			bgb_array[*] = 0.20634 * agb_array
 		end
 ;	171		- IW deciduous
@@ -267,7 +269,7 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;		171: agb_array[*] = 0.2056 * (lorey_array^2.0132)
 		171: begin
 ;			agb_array[*] = 3.486 * (lorey_array^1.2)  ; from 250m against cms agb at pixel level
-			agb_array[*] = 0.98583 * (lorey_array^1.6)
+			agb_array[*] = 0.98583 * (lorey_array^1.6) < MAX_AGB
 			bgb_array[*] = 0.20634 * agb_array
 		end
 
@@ -281,7 +283,7 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;			agb_array[*] = 2.8295* (lorey_array^1.3)  ; from 250m against cms agb at pixel level
 ;			agb_array[*] = 0.48829 * (lorey_array^1.7894)
 ;			agb_array[*] = 0.94289 * (lorey_array^1.6)
-			agb_array[*] = 0.05 * (lorey_array^2.4733)
+			agb_array[*] = 0.05 * (lorey_array^2.4733) < MAX_AGB
 			bgb_array[*] = 0.22394 * agb_array
 		end
 ;	173		- PA mixed
@@ -291,7 +293,7 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 		173: begin
 ;			agb_array[*] = 5.4311 * (lorey_array^1.1)  ; from 250m against cms agb at pixel level no mixed, use deciduous
 ;			agb_array[*] = (3.9131 * (lorey_array^1.3) + 0.05 * (lorey_array^2.4733)) / 2
-			agb_array[*] = 0.05 * (lorey_array^2.4733)
+			agb_array[*] = 0.05 * (lorey_array^2.4733) < MAX_AGB
 			bgb_array[*] = 0.20541 * agb_array
 		end
 ;	174		- PA deciduous
@@ -300,7 +302,7 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;		174: agb_array[*] = 0.1 * (lorey_array^2.2523)
 		174: begin
 ;			agb_array[*] = 5.4311 * (lorey_array^1.1)  ; from 250m against cms agb at pixel level
-			agb_array[*] = 3.9131 * (lorey_array^1.3)
+			agb_array[*] = 3.9131 * (lorey_array^1.3) < MAX_AGB
 			bgb_array[*] = 0.20541 * agb_array
 		end
 	
@@ -308,41 +310,41 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;	South America
 ;	30		-	class 40
 		30:	begin
-			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8 ; added sapling
+			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8  < MAX_AGB; added sapling
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
 		end
 ;	31		- class 50, 60
 		31:	begin
-			agb_array[*] = 1.1799 * (lorey_array^1.536)
+			agb_array[*] = 1.1799 * (lorey_array^1.536) < MAX_AGB
 			bgb_array[*] = 0.19621 * agb_array
 		end
 ;	32		- class 100
 		32:	begin
-			agb_array[*] = 0.689 * (lorey_array^1.6932)
+			agb_array[*] = 0.689 * (lorey_array^1.6932) < MAX_AGB
 			bgb_array[*] = 0.20844 * agb_array
 		end
 ;	33		- class 110, 120, 130
 		33:	begin
-			agb_array[*] = 2.3053 * (lorey_array^1.3171)
+			agb_array[*] = 2.3053 * (lorey_array^1.3171) < MAX_AGB
 			bgb_array[*] = 0.322 * agb_array
 		end
 ;	35		- class 160
 		35:	begin
-			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8  ;added sapling
+			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8  < MAX_AGB ;added sapling
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
 		end
 ;	36		-	class 170
 		36:	begin
-			agb_array[*] = 1.1799 * (lorey_array^1.536)
+			agb_array[*] = 1.1799 * (lorey_array^1.536) < MAX_AGB
 			bgb_array[*] = 0.20634 * agb_array
 		end
 ;	37		-	misclass
 		37: begin
-			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8 ; added sapling
+			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8  < MAX_AGB; added sapling
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
@@ -352,7 +354,7 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;	50		-	class 50, 60, 100 east
 		;50:	agb_array[*] = 0.061015 * (lorey_array^2.6032)
 		50:	begin
-			agb_array[*] = 0.26089 * (lorey_array^2.1192) ;changed after removing one outlier
+			agb_array[*] = 0.26089 * (lorey_array^2.1192)  < MAX_AGB;changed after removing one outlier
 			index = where(agb_array lt 75, count)
 			if (count gt 0) then bgb_array[index] = 0.456 * agb_array[index] 
 			index = where((agb_array ge 75) and (agb_array lt 150), count)
@@ -362,12 +364,12 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 		end
 ;	51		- class 50, 60 west
 		51:	begin
-			agb_array[*] = 1.1799 * (lorey_array^1.536)
+			agb_array[*] = 1.1799 * (lorey_array^1.536) < MAX_AGB
 			bgb_array[*] = 0.20634 * agb_array
 		end
 ;	52		-	class 70, 90 west (Norway)
 		52: begin
-			agb_array[*] = 3.9314 * (lorey_array^1.2103)
+			agb_array[*] = 3.9314 * (lorey_array^1.2103) < MAX_AGB
 			index = where(agb_array lt 145, count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.23803*agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 1.7071 + 0.21461 * agb_array[index2]
@@ -375,29 +377,29 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;	53		- class 70, 90 east (Russia)
 ;		53:	agb_array[*] = 4.5925 * ((1.0579*(lorey_array^0.92147))^1.1627)
 		53: begin
-			agb_array[*] = 0.2 * (lorey_array^2.2194) ; Guoqing
+			agb_array[*] = 0.2 * (lorey_array^2.2194)  < MAX_AGB; Guoqing
 			index = where(agb_array lt 75, count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.392 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.239 * agb_array[index2]
 		end
 ;	54		- class 110, 120, 130   (Pedro Rodriguez-Veiga)
 		54:	begin
-			agb_array[*] = 1.4243 * (lorey_array^1.595)
+			agb_array[*] = 1.4243 * (lorey_array^1.595) < MAX_AGB
 			bgb_array[*] = 0.322 * agb_array
 		end
 ;	55		- class 160
 		55:	begin
-			agb_array[*] = 1.1799 * (lorey_array^1.536)
+			agb_array[*] = 1.1799 * (lorey_array^1.536) < MAX_AGB
 			bgb_array[*] = 0.20634 * agb_array
 		end
 ;	56		-	class 170
 		56:	begin
-			agb_array[*] = 1.1799 * (lorey_array^1.536)
+			agb_array[*] = 1.1799 * (lorey_array^1.536) < MAX_AGB
 			bgb_array[*] = 0.20634 * agb_array
 		end
 ;	57		-	class 180
 		57:	begin
-			agb_array[*] = 1.1799 * (lorey_array^1.536)
+			agb_array[*] = 1.1799 * (lorey_array^1.536) < MAX_AGB
 			bgb_array[*] = 0.20634 * agb_array
 		end
 
@@ -405,72 +407,72 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;	Africa
 ;	70		-	class 40
 		70:	begin
-			agb_array[*] = (1-0.01072) * 0.2788 * (lorey_array^2.12) + 16.8 ; added sapling
+			agb_array[*] = (1-0.01072) * 0.2788 * (lorey_array^2.12) + 16.8  < MAX_AGB; added sapling
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
 		end
 ;	71		-	class 50
 		71:	begin
-			agb_array[*] = 1.1799 * (lorey_array^1.536)
+			agb_array[*] = 1.1799 * (lorey_array^1.536) < MAX_AGB
 			bgb_array[*] = 0.20634 * agb_array
 		end
 ;	72		-	class 60
 		72:	begin
-			agb_array[*] = 0.12363* (lorey_array^2.3533)
+			agb_array[*] = 0.12363* (lorey_array^2.3533) < MAX_AGB
 			bgb_array[*] = 0.4933 * agb_array
 		end
 ;	73		- class 70
 		73:	begin
-			agb_array[*] = 0.68255 * (lorey_array^1.6939)
+			agb_array[*] = 0.68255 * (lorey_array^1.6939) < MAX_AGB
 			bgb_array[*] = 0.22149 * agb_array
 		end
 ;	74		- class	90
 		74:	begin
-			agb_array[*] = 0.68255 * (lorey_array^1.6939)
+			agb_array[*] = 0.68255 * (lorey_array^1.6939) < MAX_AGB
 			bgb_array[*] = 0.22149 * agb_array
 		end
 ;	75		-	class 100
 		75: begin
-			agb_array[*] = 0.689 * (lorey_array^1.6932)
+			agb_array[*] = 0.689 * (lorey_array^1.6932) < MAX_AGB
 			bgb_array[*] = 0.20844 * agb_array
 		end
 ;	76		- class 110
 		76:	begin
-			agb_array[*] = 2.3053 * (lorey_array^1.3171)
+			agb_array[*] = 2.3053 * (lorey_array^1.3171) < MAX_AGB
 			bgb_array[*] = 0.322 * agb_array
 		end
 ;	77		-	class 120
 		77:	begin
-			agb_array[*] = 2.3053 * (lorey_array^1.3171)
+			agb_array[*] = 2.3053 * (lorey_array^1.3171) < MAX_AGB
 			bgb_array[*] = 0.322 * agb_array
 		end
 ;	78		-	class 130
 		78:	begin
-			agb_array[*] = 2.3053 * (lorey_array^1.3171)
+			agb_array[*] = 2.3053 * (lorey_array^1.3171) < MAX_AGB
 			bgb_array[*] = 0.322 * agb_array
 		end
 ;	79		-	class 160
 		;79:	agb_array[*] = 1.1799 * (lorey_array^1.536)
 		79:	begin
-			agb_array[*] = (1-0.01072) * 0.2788 * (lorey_array^2.12) + 16.8 ; added sapling
+			agb_array[*] = (1-0.01072) * 0.2788 * (lorey_array^2.12) + 16.8  < MAX_AGB; added sapling
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
 		end
 ;	80		-	class 170
 		80:	begin
-			agb_array[*] = 1.1799 * (lorey_array^1.536)
+			agb_array[*] = 1.1799 * (lorey_array^1.536) < MAX_AGB
 			bgb_array[*] = 0.20634 * agb_array
 		end
 ;	81		-	class 180
 		81:	begin
-			agb_array[*] = 1.1799 * (lorey_array^1.536)
+			agb_array[*] = 1.1799 * (lorey_array^1.536) < MAX_AGB
 			bgb_array[*] = 0.20634 * agb_array
 		end
 ;	82		-	misclass
 		82:	begin
-			agb_array[*] = (1-0.01072) * 0.2788 * (lorey_array^2.12) + 16.8 ; added sapling
+			agb_array[*] = (1-0.01072) * 0.2788 * (lorey_array^2.12) + 16.8  < MAX_AGB; added sapling
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
@@ -479,7 +481,7 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;	Southeast Asia
 ;	90		-	class 40 (tropical rain forest)
 		90:	begin
-			agb_array[*] = (1-0.034396) * 0.21608 * (lorey_array^2.1604) + 24.263
+			agb_array[*] = (1-0.034396) * 0.21608 * (lorey_array^2.1604) + 24.263 < MAX_AGB
 			;agb_array[*] = 1.05 * (0.61/0.6) * (0.2788 * (lorey_array^2.12))  ;temporary allometry to test Saatchi pantropic map
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
@@ -488,7 +490,7 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;	91		-	class 50
 		;91: agb_array[*] = 0.061015 * (lorey_array^2.6032)
 		91:	begin
-			agb_array[*] = 0.26089 * (lorey_array^2.1192) ;changed after removing one outlier (from China)
+			agb_array[*] = 0.26089 * (lorey_array^2.1192)  < MAX_AGB;changed after removing one outlier (from China)
 			index = where(agb_array lt 75, count)
 			if (count gt 0) then bgb_array[index] = 0.456 * agb_array[index] 
 			index = where((agb_array ge 75) and (agb_array lt 150), count)
@@ -499,7 +501,7 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;	92		-	class 60
 		;92: agb_array[*] = 0.061015 * (lorey_array^2.6032)
 		92:	begin
-			agb_array[*] = 0.26089 * (lorey_array^2.1192) ;changed after removing one outlier (from China)
+			agb_array[*] = 0.26089 * (lorey_array^2.1192)  < MAX_AGB;changed after removing one outlier (from China)
 			index = where(agb_array lt 75, count)
 			if (count gt 0) then bgb_array[index] = 0.456 * agb_array[index] 
 			index = where((agb_array ge 75) and (agb_array lt 150), count)
@@ -510,7 +512,7 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;	93		-	class 40 (nepal)
 		93:	begin
 ;			agb_array[*] = 7.7413 * (lorey_array^1.3155)
-			agb_array[*] = 8.4726 * (lorey_array^1.2857)
+			agb_array[*] = 8.4726 * (lorey_array^1.2857) < MAX_AGB
 			index = where(agb_array gt 600, count)
 			if (count gt 0) then agb_array[index] = 600
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
@@ -520,39 +522,39 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;	94		-	class 70 (nepal)
 ;		94:	agb_array[*] = 0.69646 * (lorey_array^2.1062)
 		94:	begin
-			agb_array[*] = 0.68255 * (lorey_array^1.6939)  ;temp use regular value because Nepal eq gives too high AGB
+			agb_array[*] = 0.68255 * (lorey_array^1.6939)  < MAX_AGB ;temp use regular value because Nepal eq gives too high AGB
 			index = where(agb_array gt 450, count)
 			if (count gt 0) then agb_array[index] = 450
 			bgb_array[*] = 0.22149 * agb_array
 		end
 ;	95		-	class 90
 		95:	begin
-			agb_array[*] = 0.68255 * (lorey_array^1.6939)
+			agb_array[*] = 0.68255 * (lorey_array^1.6939) < MAX_AGB
 			bgb_array[*] = 0.22149 * agb_array
 		end
 ;	96		-	class 100
 		96:	begin
-			agb_array[*] = 0.689 * (lorey_array^1.6932)
+			agb_array[*] = 0.689 * (lorey_array^1.6932) < MAX_AGB
 			bgb_array[*] = 0.20844 * agb_array
 		end
 ;	97		-	class 110
 		97:	begin
-			agb_array[*] = 2.3053 * (lorey_array^1.3171)
+			agb_array[*] = 2.3053 * (lorey_array^1.3171) < MAX_AGB
 			bgb_array[*] = 0.322 * agb_array
 		end
 ;	98		- class 120
 		98:	begin
-			agb_array[*] = 2.3053 * (lorey_array^1.3171)
+			agb_array[*] = 2.3053 * (lorey_array^1.3171) < MAX_AGB
 			bgb_array[*] = 0.322 * agb_array
 		end
 ;	99		-	class 130
 		99:	begin
-			agb_array[*] = 2.3053 * (lorey_array^1.3171)
+			agb_array[*] = 2.3053 * (lorey_array^1.3171) < MAX_AGB
 			bgb_array[*] = 0.322 * agb_array
 		end
 ;	100		-	class 160
 		100:	begin
-			agb_array[*] = (1-0.034396) * 0.21608 * (lorey_array^2.1604) + 24.263
+			agb_array[*] = (1-0.034396) * 0.21608 * (lorey_array^2.1604) + 24.263 < MAX_AGB
 			;agb_array[*] = 1.05 * (0.61/0.6) * (0.2788 * (lorey_array^2.12))  ;temporary allometry to test Saatchi pantropic map
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
@@ -560,30 +562,30 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 		end
 ;	101		-	class 170
 		101:	begin
-			agb_array[*] = 1.1799 * (lorey_array^1.536)
+			agb_array[*] = 1.1799 * (lorey_array^1.536) < MAX_AGB
 			bgb_array[*] = 0.20634 * agb_array
 		end
 ;	102		-	class 180
 		102:	begin
-			agb_array[*] = 1.1799 * (lorey_array^1.536)
+			agb_array[*] = 1.1799 * (lorey_array^1.536) < MAX_AGB
 			bgb_array[*] = 0.20634 * agb_array
 		end
 ;	103		-	misclass
 		103:	begin
-			agb_array[*] = 0.21608 * (lorey_array^2.1604)
+			agb_array[*] = 0.21608 * (lorey_array^2.1604) < MAX_AGB
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
 		end
 ; 104   - class 70 (rest of SEA)
 		104:	begin
-			agb_array[*] = 0.68255 * (lorey_array^1.6939)
+			agb_array[*] = 0.68255 * (lorey_array^1.6939) < MAX_AGB
 			bgb_array[*] = 0.22149 * agb_array
 		end
 ; 105 - terai lowland forests
 		;use mixed equation from Guoqing China for now
 		105:	begin
-			agb_array[*] = 0.26089 * (lorey_array^2.1192)
+			agb_array[*] = 0.26089 * (lorey_array^2.1192) < MAX_AGB
 			index = where(agb_array lt 75, count)
 			if (count gt 0) then bgb_array[index] = 0.456 * agb_array[index] 
 			index = where((agb_array ge 75) and (agb_array lt 150), count)
@@ -595,66 +597,66 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;	Australia
 ;	110		-	class 40
 		110:	begin
-			agb_array[*] = (1-0.034396) * 0.39194 * (lorey_array^2.1506) + 24.263 ; using sapling from SEA
+			agb_array[*] = (1-0.034396) * 0.39194 * (lorey_array^2.1506) + 24.263  < MAX_AGB; using sapling from SEA
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
 		end
 ;	111		-	class 50
 		111:	begin
-			agb_array[*] = 1.1799 * (lorey_array^1.536)
+			agb_array[*] = 1.1799 * (lorey_array^1.536) < MAX_AGB
 			bgb_array[*] = 0.20634 * agb_array
 		end
 ;	112		-	class 60
 		112:	begin
-			agb_array[*] = 1.1799 * (lorey_array^1.536)
+			agb_array[*] = 1.1799 * (lorey_array^1.536) < MAX_AGB
 			bgb_array[*] = 0.20634 * agb_array
 		end
 ;	113		-	class 70
 		113:	begin
-			agb_array[*] = 0.68255 * (lorey_array^1.6939)
+			agb_array[*] = 0.68255 * (lorey_array^1.6939) < MAX_AGB
 			bgb_array[*] = 0.22149 * agb_array
 		end
 ;	114		-	class 90
 		114:	begin
-			agb_array[*] = 0.68255 * (lorey_array^1.6939)
+			agb_array[*] = 0.68255 * (lorey_array^1.6939) < MAX_AGB
 			bgb_array[*] = 0.22149 * agb_array
 		end
 ;	115		-	class 100
 		115:	begin
-			agb_array[*] = 0.689 * (lorey_array^1.6932)
+			agb_array[*] = 0.689 * (lorey_array^1.6932) < MAX_AGB
 			bgb_array[*] = 0.20844 * agb_array
 		end
 ;	116		-	class 110
 		116:	begin
-			agb_array[*] = 2.3053 * (lorey_array^1.3171)
+			agb_array[*] = 2.3053 * (lorey_array^1.3171) < MAX_AGB
 			bgb_array[*] = 0.322 * agb_array
 		end
 ;	117		-	class 120
 		117:	begin
-			agb_array[*] = 2.3053 * (lorey_array^1.3171)
+			agb_array[*] = 2.3053 * (lorey_array^1.3171) < MAX_AGB
 			bgb_array[*] = 0.322 * agb_array
 		end
 ;	118		-	class 130
 		118:	begin
-			agb_array[*] = 2.3053 * (lorey_array^1.3171)
+			agb_array[*] = 2.3053 * (lorey_array^1.3171) < MAX_AGB
 			bgb_array[*] = 0.322 * agb_array
 		end
 ;	119		-	class 160
 		119:	begin
-			agb_array[*] = (1-0.034396) * 0.39194 * (lorey_array^2.1506) + 24.263 ;using sapling from SEA
+			agb_array[*] = (1-0.034396) * 0.39194 * (lorey_array^2.1506) + 24.263  < MAX_AGB;using sapling from SEA
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
 		end
 ;	120		-	class 170
 		120:	begin
-			agb_array[*] = 1.1799 * (lorey_array^1.536)
+			agb_array[*] = 1.1799 * (lorey_array^1.536) < MAX_AGB
 			bgb_array[*] = 0.20634 * agb_array
 		end
 ;	121		-	class 180
 		121:	begin
-			agb_array[*] = 1.1799 * (lorey_array^1.536)
+			agb_array[*] = 1.1799 * (lorey_array^1.536) < MAX_AGB
 			bgb_array[*] = 0.20634 * agb_array
 		end
 
@@ -662,80 +664,80 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 ;South America Ecozones
 		201: begin
 			;agb_array[*] = (1-0.01072) * 3.1721 * (lorey_array^1.3257) + 16.8 ; use SAM sapling
-			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8 ; temporarily use general sam equation
+			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8  < MAX_AGB; temporarily use general sam equation
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
 		end
 		202: begin
 			;agb_array[*] = (1-0.01072) * 3.1721 * (lorey_array^1.3257) + 16.8 ; use SAM sapling
-			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8 ; temporarily use general sam equation
+			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8  < MAX_AGB; temporarily use general sam equation
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
 		end
 		203: begin
 			;agb_array[*] = (1-0.01072) * 2.4673 * (lorey_array^1.4706) + 16.8 ; use SAM sapling
-			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8 ; temporarily use general sam equation
+			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8  < MAX_AGB; temporarily use general sam equation
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
 		end
 		204: begin
 			;agb_array[*] = (1-0.01072) * 0.23065 * (lorey_array^2.217) + 16.8 ; Use SAM sapling
-			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8 ; temporarily use general sam equation
+			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8  < MAX_AGB; temporarily use general sam equation
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
 		end
 		205: begin
-			agb_array[*] = (1-0.01072) * 0.6011 * (lorey_array^1.894) + 16.8 ; added sapling
+			agb_array[*] = (1-0.01072) * 0.6011 * (lorey_array^1.894) + 16.8  < MAX_AGB; added sapling
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
 		end
 		206: begin
 			;agb_array[*] = (1-0.01072) * 0.2163 * (lorey_array^2.1835) + 16.8 ; Use SAM sapling
-			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8 ; temporarily use general sam equation
+			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8  < MAX_AGB; temporarily use general sam equation
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
 		end
 		207: begin
-			agb_array[*] = (1-0.01072) * 0.6011 * (lorey_array^1.894) + 16.8 ; added sapling
+			agb_array[*] = (1-0.01072) * 0.6011 * (lorey_array^1.894) + 16.8  < MAX_AGB; added sapling
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
 		end
 		208: begin
-			agb_array[*] = (1-0.01072) * 0.6011 * (lorey_array^1.894) + 16.8 ; added sapling
+			agb_array[*] = (1-0.01072) * 0.6011 * (lorey_array^1.894) + 16.8  < MAX_AGB; added sapling
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
 		end
 		209: begin
-			agb_array[*] = (1-0.01072) * 0.6011 * (lorey_array^1.894) + 16.8 ; added sapling
+			agb_array[*] = (1-0.01072) * 0.6011 * (lorey_array^1.894) + 16.8  < MAX_AGB; added sapling
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
 		end
 		210: begin
 			;agb_array[*] = (1-0.01072) * 0.95843 * (lorey_array^1.8102) + 16.8
-			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8 ; temporarily use general sam equation
+			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8  < MAX_AGB; temporarily use general sam equation
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
 		end
 		211: begin
 			;agb_array[*] = (1-0.01072) * 0.00945 * (lorey_array^3.18566) + 16.8
-			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8 ; temporarily use general sam equation
+			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8  < MAX_AGB; temporarily use general sam equation
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
 		end
 		212: begin
 			;agb_array[*] = (1-0.01072) * 3.1721 * (lorey_array^1.3257) + 16.8
-			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8 ; temporarily use general sam equation
+			agb_array[*] = (1-0.01072)* 0.6011 * (lorey_array^1.894) + 16.8  < MAX_AGB; temporarily use general sam equation
 			index = where((agb_array lt 125), count, complement=index2, ncomplement=count2)
 			if (count gt 0) then bgb_array[index] = 0.205 * agb_array[index]
 			if (count2 gt 0) then bgb_array[index2] = 0.235 * agb_array[index2]
@@ -743,7 +745,7 @@ Pro apply_value, lorey_array, type, agb_array, bgb_array
 
  ;Mangrove
 		241: begin
-			agb_array[*] = 0.7067 * (lorey_array^1.7862)   ; using 11 0.04ha plots in Africa
+			agb_array[*] = 0.7067 * (lorey_array^1.7862)  < MAX_AGB  ; using 11 0.04ha plots in Africa
 			bgb_array[*] = 0.4 * agb_array
 		end
 
