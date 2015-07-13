@@ -32,8 +32,8 @@ for i=0ULL, n_elements(hlorey)-1 do begin
 ;	out_string += strtrim(string((data.(8))[i]),2) + ','
 ;	out_string += strtrim(string((data.(9))[i]),2) + ','
 ;	out_string += strtrim(string((data.(9))[i]),2) + ','
-	out_string += strtrim(string(agb[i],format='(f6.2)'),2) + ','
-	out_string += strtrim(string(bgb[i],format='(f6.2)'),2)
+	out_string += strtrim(string(agb[i],format='(f7.1)'),2) + ','
+	out_string += strtrim(string(bgb[i],format='(f7.1)'),2)
 
 	printf, 1, out_string
 endfor
