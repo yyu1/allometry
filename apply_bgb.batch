@@ -1,0 +1,8 @@
+in_file = '/Volumes/wd_3t/maxent/v5.1/maxent_agb_global_v5.1_masked.flt'
+type_file = '/Volumes/wd_3t/allometry_types/mod250m/allometry_types_mod250m_v2.2.byt'
+
+out_file = '/Volumes/wd_3t/maxent/v5.1/maxent_bgb_global_v5.1_masked.flt'
+
+create_bgb, in_file, type_file, out_file
+
+
