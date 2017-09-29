@@ -927,7 +927,7 @@ End
 
 
 
-PRO lorey2biomass2, in_lorey, in_type, agb_array, bgb_array
+PRO lorey2biomass2, in_lorey, in_type, in_country, in_forestgroup, in_globcover, agb_array, bgb_array
 	
 	if (n_elements(in_lorey) ne n_elements(in_type)) then begin
 		print, 'Error!  Number of elements of in_lorey does not match in_type'
@@ -938,6 +938,16 @@ PRO lorey2biomass2, in_lorey, in_type, agb_array, bgb_array
 
   index = where((in_lorey lt 0), count)
   if (count gt 0) then out_agb[index] = -1   ;temp fix for some water issues in 3.2sec images
+
+	;Reassign types for   150 - 174 which were the previous US and Canada allometries based on average values
+
+	index = where((intype ge 150) and (intype lt 175), count)
+	for i=0, count-1 do begin
+		;USA
+		if (in_country[index[i]]) eq 
+
+	endfor
+
 
 	index = where((in_type ne 0), count)
 
