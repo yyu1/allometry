@@ -152,6 +152,122 @@ MAX_AGB = 650
 			bgb_array[*] = 0.22149 * agb_array
 		end
 
+;159 - FIA Forest Type 280
+		159: begin
+			agb_array[*] = 0.5521 * (lorey_array^1.8395) < MAX_AGB
+			bgb_array[*] = 0.22149 * agb_array
+		end
+
+;160 - FIA Forest Type 300
+		160: begin
+			agb_array[*] = 0.5424 * (lorey_array^1.8765) < MAX_AGB
+			bgb_array[*] = 0.22149 * agb_array
+		end
+		
+;161 - FIA Forest Type 320
+		161: begin
+			agb_array[*] = 0.2063 * (lorey_array^2.0276) < MAX_AGB
+			bgb_array[*] = 0.22149 * agb_array
+		end
+
+;162 - FIA Forest Type 340
+		162: begin
+			agb_array[*] = 0.0021 * (lorey_array^3.2265) < MAX_AGB
+			bgb_array[*] = 0.22149 * agb_array
+		end
+
+;163 - FIA Forest Type 360
+		163: begin
+			agb_array[*] = 1.4150 * (lorey_array^1.5235) < MAX_AGB
+			bgb_array[*] = 0.22149 * agb_array
+		end
+;164 - FIA Forest Type 370
+		164: begin
+			agb_array[*] = 0.6387 * (lorey_array^1.7132) < MAX_AGB
+			bgb_array[*] = 0.22149 * agb_array
+		end
+
+;165 - FIA Forest Type 380
+		165: begin
+			agb_array[*] = 0.2552 * (lorey_array^2.0577) < MAX_AGB
+			bgb_array[*] = 0.22149 * agb_array
+		end
+
+;166 - FIA Forest Type 400
+		166: begin
+			agb_array[*] = 0.1055 * (lorey_array^2.2990) < MAX_AGB
+			bgb_array[*] = 0.20844 * agb_array
+		end
+
+;167 - FIA Forest Type 500
+		167: begin
+			agb_array[*] = 0.3906 * (lorey_array^1.8805) < MAX_AGB
+			bgb_array[*] = 0.19677 * agb_array
+		end
+
+;168 - FIA Forest Type 600
+		168: begin
+			agb_array[*] = 0.0746 * (lorey_array^2.4345) < MAX_AGB
+			bgb_array[*] = 0.19677 * agb_array
+		end
+
+;169 - FIA Forest Type 700
+		169: begin
+			agb_array[*] = 0.3313 * (lorey_array^1.9116) < MAX_AGB
+			bgb_array[*] = 0.19677 * agb_array
+		end
+		
+
+;170 - FIA Forest Type 800
+		170: begin
+			agb_array[*] = 0.6698 * (lorey_array^1.7370) < MAX_AGB
+			bgb_array[*] = 0.19677 * agb_array
+		end
+
+;171 - FIA Forest Type 900
+		171: begin
+			agb_array[*] = 0.0497 * (lorey_array^2.5337) < MAX_AGB
+			bgb_array[*] = 0.19677 * agb_array
+		end
+
+;172 - FIA Forest Type 910
+		172: begin
+			agb_array[*] = 0.0504 * (lorey_array^2.4195) < MAX_AGB
+			bgb_array[*] = 0.19677 * agb_array
+		end
+							
+
+;173 - FIA Forest Type 920
+		173: begin
+			agb_array[*] = 3.3549 * (lorey_array^1.2291) < MAX_AGB
+			bgb_array[*] = 0.19677 * agb_array
+		end
+
+;174 - FIA Forest Type 940
+		174: begin
+			agb_array[*] = 3.4535 * (lorey_array^1.3075) < MAX_AGB
+			bgb_array[*] = 0.19677 * agb_array
+		end
+			
+;175 - FIA Forest Type 960
+		175: begin
+			agb_array[*] = 0.0544 * (lorey_array^2.5567) < MAX_AGB
+			bgb_array[*] = 0.19677 * agb_array
+		end
+
+;176 - FIA Forest Type 980
+		176: begin
+			agb_array[*] = 5.0211 * (lorey_array^1.2510) < MAX_AGB
+			bgb_array[*] = 0.19677 * agb_array
+		end
+
+;177 - FIA Forest Type 990
+		177: begin
+			agb_array[*] = 0.0645 * (lorey_array^2.4135) < MAX_AGB
+			bgb_array[*] = 0.19677 * agb_array
+		end
+	
+
 ;; 150   - Canada ecozone 14: Montane Cordillera
 ;		150: begin
 ;			agb_array[*] = 1.5248 * (lorey_array^1.5512) < MAX_AGB
