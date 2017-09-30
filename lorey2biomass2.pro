@@ -10,6 +10,7 @@
 
 FUNCTION nam_globcover2allometry, globcover
 	switch globcover of
+		30: return, 16
 		40: return, 10
 		50: return, 11
 		60: return, 11
@@ -19,6 +20,7 @@ FUNCTION nam_globcover2allometry, globcover
 		110: return, 16
 		120: return, 16
 		130: return, 16
+		140: return, 22
 		160: return, 17
 		170: return, 18
 	endswitch
@@ -32,7 +34,7 @@ END
 ;
 Pro apply_value, lorey_array, type, agb_array, bgb_array
 
-MAX_AGB = 650
+MAX_AGB = 800
 
 ;agb_array and bgb_array are for output and are modified in the procedure
 
@@ -960,162 +962,145 @@ PRO lorey2biomass2, in_lorey, in_type, in_country, in_forestgroup, in_globcover,
   index = where((in_lorey lt 0), count)
   if (count gt 0) then out_agb[index] = -1   ;temp fix for some water issues in 3.2sec images
 
-	;Reassign types for   150 - 174 which were the previous US and Canada allometries based on average values
 
-	index = where((intype ge 150) and (intype lt 175), count)
-	for i=0, count-1 do begin
-		;USA
-		if (in_country[index[i]] eq 152) then begin  ;152 = USA
-			switch in_forestgroup[index[i]] of
-				100: intype[index[i]] = 150
-				120: intype[index[i]] = 151
-				140: intype[index[i]] = 152
-				160: intype[index[i]] = 153
-				180: intype[index[i]] = 154
-				200: intype[index[i]] = 155
-				220: intype[index[i]] = 156
-				240: intype[index[i]] = 157
-				260: intype[index[i]] = 158
-				280: intype[index[i]] = 159
-				300: intype[index[i]] = 160
-				320: intype[index[i]] = 161
-				340: intype[index[i]] = 162
-				360: intype[index[i]] = 163
-				370: intype[index[i]] = 164
-				380: intype[index[i]] = 165
-				400: intype[index[i]] = 166
-				500: intype[index[i]] = 167
-				600: intype[index[i]] = 168
-				700: intype[index[i]] = 169
-				800: intype[index[i]] = 170
-				900: intype[index[i]] = 171
-				910: intype[index[i]] = 172
-				920: intype[index[i]] = 173
-				940: intype[index[i]] = 174
-				960: intype[index[i]] = 175
-				980: intype[index[i]] = 176
-				990: intype[index[i]] = 177
+	for i=0ULL, arr_size-1 do begin
+		;print, "adjusting for in_type of ", in_type[i], " with forestgroup ", in_forestgroup[i]
+		switch in_forestgroup[i] of
+			100: in_type[i] = 150
+			120: in_type[i] = 151
+			140: in_type[i] = 152
+			160: in_type[i] = 153
+			180: in_type[i] = 154
+			200: in_type[i] = 155
+			220: in_type[i] = 156
+			240: in_type[i] = 157
+			260: in_type[i] = 158
+			280: in_type[i] = 159
+			300: in_type[i] = 160
+			320: in_type[i] = 161
+			340: in_type[i] = 162
+			360: in_type[i] = 163
+			370: in_type[i] = 164
+			380: in_type[i] = 165
+			400: in_type[i] = 166
+			500: in_type[i] = 167
+			600: in_type[i] = 168
+			700: in_type[i] = 169
+			800: in_type[i] = 170
+			900: in_type[i] = 171
+			910: in_type[i] = 172
+			920: in_type[i] = 173
+			940: in_type[i] = 174
+			960: in_type[i] = 175
+			980: in_type[i] = 176
+			990: in_type[i] = 177
+			else: begin
+				;No forestgroup value, so next check for canada types
+				oldtype = in_type[i]
+				switch oldtype of
+					150: begin    ; Montane Cordillera
+						switch in_globcover[i] of
+							;Deciduous
+							50: in_type[i] = 171
+							60: in_type[i] = 171
+							;Evergreen
+							70: in_type[i] = 156
+							90: in_type[i] = 156
+							;Mixed
+							100: in_type[i] = 166
 
-				else: begin
-					switch in_globcover[index[i]] of
-						40: intype[index[i]] = 10
-						50: intype[index[i]] = 11
-						60: intype[index[i]] = 11
-						70: intype[index[i]] = 14
-						90: intype[index[i]] = 14
-						100: intype[index[i]] = 15
-						110: intype[index[i]] = 16
-						120: intype[index[i]] = 16
-						130: intype[index[i]] = 16
-						160: intype[index[i]] = 17
-						170: intype[index[i]] = 18
-						else: intype[index[i]] = 0
-					endswitch
-				end
-			endswitch
-		endif else begin
-			;We are not in USA, so use Canada equations
-			oldtype = intype[index[i]]
-			switch oldtype of
-				150: begin    ; Montane Cordillera
-					switch in_globcover[index[i]] of
-						;Deciduous
-						50: intype[index[i]] = 171
-						60: intype[index[i]] = 171
-						;Evergreen
-						70: intype[index[i]] = 156
-						90: intype[index[i]] = 156
-						;Mixed
-						100: intype[index[i]] = 166
+							else: in_type[i] = nam_globcover2allometry(in_globcover[i])
+						endswitch
+					end
 
-						else: intype[index[i]] = nam_globcover2allometry(in_globcover[index[i]])
-					endswitch
-				end
+					151: begin    ; Pacific Maritime
+						switch in_globcover[i] of
+							;Deciduous
+							50: in_type[i] = 160
+							60: in_type[i] = 160
+							;Evergreen
+							70: in_type[i] = 158
+							90: in_type[i] = 158
+							;Mixed
+							100: in_type[i] = 166
 
-				151: begin    ; Pacific Maritime
-					switch in_globcover[index[i]] of
-						;Deciduous
-						50: intype[index[i]] = 160
-						60: intype[index[i]] = 160
-						;Evergreen
-						70: intype[index[i]] = 158
-						90: intype[index[i]] = 158
-						;Mixed
-						100: intype[index[i]] = 166
+							else: in_type[i] = nam_globcover2allometry(in_globcover[i])
+						endswitch
+					end
 
-						else: intype[index[i]] = nam_globcover2allometry(in_globcover[index[i]])
-					endswitch
-				end
+					152: begin    ; Boreal Cordillera
+						switch in_globcover[i] of
+							;Deciduous
+							50: in_type[i] = 171
+							60: in_type[i] = 171
+							;Evergreen
+							70: in_type[i] = 158
+							90: in_type[i] = 158
+							;Mixed
+							100: in_type[i] = 166
 
-				152: begin    ; Boreal Cordillera
-					switch in_globcover[index[i]] of
-						;Deciduous
-						50: intype[index[i]] = 171
-						60: intype[index[i]] = 171
-						;Evergreen
-						70: intype[index[i]] = 158
-						90: intype[index[i]] = 158
-						;Mixed
-						100: intype[index[i]] = 166
+							else: in_type[i] = nam_globcover2allometry(in_globcover[i])
+						endswitch
+					end
 
-						else: intype[index[i]] = nam_globcover2allometry(in_globcover[index[i]])
-					endswitch
-				end
+					153: begin    ; Boreal Plains
+						switch in_globcover[i] of
+							;Deciduous
+							50: in_type[i] = 171
+							60: in_type[i] = 171
+							;Evergreen
+							70: in_type[i] = 158
+							90: in_type[i] = 158
+							;Mixed
+							100: in_type[i] = 166
 
-				153: begin    ; Boreal Plains
-					switch in_globcover[index[i]] of
-						;Deciduous
-						50: intype[index[i]] = 171
-						60: intype[index[i]] = 171
-						;Evergreen
-						70: intype[index[i]] = 158
-						90: intype[index[i]] = 158
-						;Mixed
-						100: intype[index[i]] = 166
+							else: in_type[i] = nam_globcover2allometry(in_globcover[i])
+						endswitch
+					end
 
-						else: intype[index[i]] = nam_globcover2allometry(in_globcover[index[i]])
-					endswitch
-				end
+					154: begin    ; Boreal Shield
+						switch in_globcover[i] of
+							;Deciduous
+							50: in_type[i] = 171
+							60: in_type[i] = 171
+							;Evergreen
+							70: in_type[i] = 151
+							90: in_type[i] = 151
+							;Mixed
+							100: in_type[i] = 166
 
-				154: begin    ; Boreal Shield
-					switch in_globcover[index[i]] of
-						;Deciduous
-						50: intype[index[i]] = 171
-						60: intype[index[i]] = 171
-						;Evergreen
-						70: intype[index[i]] = 151
-						90: intype[index[i]] = 151
-						;Mixed
-						100: intype[index[i]] = 166
+							else: in_type[i] = nam_globcover2allometry(in_globcover[i])
+						endswitch
+					end
 
-						else: intype[index[i]] = nam_globcover2allometry(in_globcover[index[i]])
-					endswitch
-				end
+					155: begin    ; Atlantic Maritime
+						switch in_globcover[i] of
+							;Deciduous
+							50: in_type[i] = 170
+							60: in_type[i] = 170
+							;Evergreen
+							70: in_type[i] = 151
+							90: in_type[i] = 151
+							;Mixed
+							100: in_type[i] = 166
 
-				155: begin    ; Atlantic Maritime
-					switch in_globcover[index[i]] of
-						;Deciduous
-						50: intype[index[i]] = 170
-						60: intype[index[i]] = 170
-						;Evergreen
-						70: intype[index[i]] = 151
-						90: intype[index[i]] = 151
-						;Mixed
-						100: intype[index[i]] = 166
+							else: in_type[i] = nam_globcover2allometry(in_globcover[i])
+						endswitch
+					end
 
-						else: intype[index[i]] = nam_globcover2allometry(in_globcover[index[i]])
-					endswitch
-				end
-
-				else: intype[index[i]] = nam_globcover2allometry(in_globcover[index[i]])
-			endswitch
-
-		endelse
-
+					else: begin
+						;Reassign types for   150 - 174 which were the previous US and Canada allometries based on average values
+						if (in_type[i] ge 150) and (in_type[i] le 174) then in_type[i] = nam_globcover2allometry(in_globcover[i])
+					end
+				endswitch
+			end
+		endswitch
 	endfor
 
-
+	
 	index = where((in_type ne 0), count)
+
+	print, count, "points to apply allometry"
 
 	if (count gt 0) then begin
 		types = in_type[index]
