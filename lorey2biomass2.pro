@@ -9,7 +9,7 @@
 ;------------------------------
 
 FUNCTION nam_globcover2allometry, globcover
-	switch globcover of
+	case globcover of
 		30: return, 16
 		40: return, 10
 		50: return, 11
@@ -23,8 +23,8 @@ FUNCTION nam_globcover2allometry, globcover
 		140: return, 22
 		160: return, 17
 		170: return, 18
-	endswitch
-	return, 0
+		else: return, 0
+	endcase
 END
 
 
@@ -965,7 +965,7 @@ PRO lorey2biomass2, in_lorey, in_type, in_country, in_forestgroup, in_globcover,
 
 	for i=0ULL, arr_size-1 do begin
 		;print, "adjusting for in_type of ", in_type[i], " with forestgroup ", in_forestgroup[i]
-		switch in_forestgroup[i] of
+		case in_forestgroup[i] of
 			100: in_type[i] = 150
 			120: in_type[i] = 151
 			140: in_type[i] = 152
@@ -997,9 +997,9 @@ PRO lorey2biomass2, in_lorey, in_type, in_country, in_forestgroup, in_globcover,
 			else: begin
 				;No forestgroup value, so next check for canada types
 				oldtype = in_type[i]
-				switch oldtype of
+				case oldtype of
 					150: begin    ; Montane Cordillera
-						switch in_globcover[i] of
+						case in_globcover[i] of
 							;Deciduous
 							50: in_type[i] = 171
 							60: in_type[i] = 171
@@ -1010,11 +1010,11 @@ PRO lorey2biomass2, in_lorey, in_type, in_country, in_forestgroup, in_globcover,
 							100: in_type[i] = 166
 
 							else: in_type[i] = nam_globcover2allometry(in_globcover[i])
-						endswitch
+						endcase
 					end
 
 					151: begin    ; Pacific Maritime
-						switch in_globcover[i] of
+						case in_globcover[i] of
 							;Deciduous
 							50: in_type[i] = 160
 							60: in_type[i] = 160
@@ -1025,11 +1025,11 @@ PRO lorey2biomass2, in_lorey, in_type, in_country, in_forestgroup, in_globcover,
 							100: in_type[i] = 166
 
 							else: in_type[i] = nam_globcover2allometry(in_globcover[i])
-						endswitch
+						endcase
 					end
 
 					152: begin    ; Boreal Cordillera
-						switch in_globcover[i] of
+						case in_globcover[i] of
 							;Deciduous
 							50: in_type[i] = 171
 							60: in_type[i] = 171
@@ -1040,11 +1040,11 @@ PRO lorey2biomass2, in_lorey, in_type, in_country, in_forestgroup, in_globcover,
 							100: in_type[i] = 166
 
 							else: in_type[i] = nam_globcover2allometry(in_globcover[i])
-						endswitch
+						endcase
 					end
 
 					153: begin    ; Boreal Plains
-						switch in_globcover[i] of
+						case in_globcover[i] of
 							;Deciduous
 							50: in_type[i] = 171
 							60: in_type[i] = 171
@@ -1055,11 +1055,11 @@ PRO lorey2biomass2, in_lorey, in_type, in_country, in_forestgroup, in_globcover,
 							100: in_type[i] = 166
 
 							else: in_type[i] = nam_globcover2allometry(in_globcover[i])
-						endswitch
+						endcase
 					end
 
 					154: begin    ; Boreal Shield
-						switch in_globcover[i] of
+						case in_globcover[i] of
 							;Deciduous
 							50: in_type[i] = 171
 							60: in_type[i] = 171
@@ -1070,11 +1070,11 @@ PRO lorey2biomass2, in_lorey, in_type, in_country, in_forestgroup, in_globcover,
 							100: in_type[i] = 166
 
 							else: in_type[i] = nam_globcover2allometry(in_globcover[i])
-						endswitch
+						endcase
 					end
 
 					155: begin    ; Atlantic Maritime
-						switch in_globcover[i] of
+						case in_globcover[i] of
 							;Deciduous
 							50: in_type[i] = 170
 							60: in_type[i] = 170
@@ -1085,16 +1085,16 @@ PRO lorey2biomass2, in_lorey, in_type, in_country, in_forestgroup, in_globcover,
 							100: in_type[i] = 166
 
 							else: in_type[i] = nam_globcover2allometry(in_globcover[i])
-						endswitch
+						endcase
 					end
 
 					else: begin
 						;Reassign types for   150 - 174 which were the previous US and Canada allometries based on average values
 						if (in_type[i] ge 150) and (in_type[i] le 174) then in_type[i] = nam_globcover2allometry(in_globcover[i])
 					end
-				endswitch
+				endcase
 			end
-		endswitch
+		endcase
 	endfor
 
 	
