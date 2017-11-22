@@ -1,5 +1,5 @@
-in_file = '/Volumes/WD2TB/100m/glas/NorthAmerica_glas_2003_2008_alltypes_agb_v6_nozero_lt10fill_forestgroup_country_extract.csv'
-out_file = '/Volumes/WD2TB/100m/glas/NorthAmerica_glas_2003_2008_alltypes_agb_v6.1_nozero_lt10fill.csv'
+in_file = '/Volumes/YifanLaCie1T/global/glas/lefsky/12_10_2012/nam_hlorey_121012_wwfbiome_globcover_vcf_type_srtm_agb_alos_forestgroup_lhlt4.5_countrycode.csv'
+out_file = '/Volumes/WD2TB/100m/glas/NorthAmerica_glas_2003_2008_alltypes_agb_v6.1_lefsky_lt4.5.csv'
 ;in_file = '/Volumes/WD2TB/100m/glas/test_input.csv'
 ;out_file = '/Volumes/WD2TB/100m/glas/test_output.csv'
 ;out_file = '/Volumes/WD2TB/100m/glas/NorthAmerica_glas_2003_2008_alltypes_agb_v6.1_nozero_lt10fill.csv'
@@ -13,14 +13,14 @@ free_lun, wd_lun
 
 data = read_csv(in_file, N_TABLE_HEADER=1)
 
-hlorey = data.(17)
-type = data.(18)
-globcover = data.(20)
-srtm = data.(19)
-longitude = data.(6)
-latitude = data.(5)
-forestgroup = data.(23)
-countrycode = data.(24)
+hlorey = data.(2)
+type = data.(9)
+globcover = data.(7)
+srtm = data.(10)
+longitude = data.(0)
+latitude = data.(1)
+forestgroup = data.(14)
+countrycode = data.(15)
 
 index = where(forestgroup eq 'oob')
 forestgroup[index] = '0'
