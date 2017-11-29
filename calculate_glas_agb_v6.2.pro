@@ -1,22 +1,25 @@
-PRO calculate_glas_agb_v6
-in_file = '/u/yyu1/allometry_data_input/global_glas_2003_2008_alltypes_formatted_extract2.csv'
-out_file = '/u/yyu1/allometry_data_input/global_glas_2003_2008_alltypes_formatted_extract2_agb.csv'
+in_file = '/u/yyu1/maxent_samples/agb_v6.2/nam_glas2003_2008_wlefskylt4.5.csv'
+out_file = '/u/yyu1/maxent_samples/agb_v6.2/nam_glas2003_2008_wlefskylt4.5_agb.csv'
 
-wd_file = '/u/yyu1/allometry_data_input/maxent_pantropic_wd_v3_n2.flt'
 
-wd_image = fltarr(43200,11500)
-openr, wd_lun, wd_file, /get_lun
-readu, wd_lun, wd_image
-free_lun, wd_lun
+data = read_csv(in_file, N_TABLE_HEADER=1)
 
-data = read_csv(in_file)
+hlorey = data.(2)
+type = data.(3)
+globcover = data.(5)
+srtm = data.(4)
+longitude = data.(0)
+latitude = data.(1)
+forestgroup = data.(6)
+countrycode = data.(7)
 
-hlorey = data.(17)
-type = data.(18)
-globcover = data.(20)
-srtm = data.(19)
-longitude = data.(6)
-latitude = data.(5)
+index = where(forestgroup eq 'oob')
+forestgroup[index] = '0'
+forestgroup_int = fix(forestgroup)
+
+index = where(countrycode eq 'oob')
+countrycode[index] = '0'
+countrycode_int = fix(countrycode)
 
 ;Adjust hlorey if globcover type is 40 or 160 and srtm is below a certain elevation.
 ;This should match up with the hlorey_adjust program
@@ -28,22 +31,11 @@ latitude = data.(5)
 agb = fltarr(n_elements(hlorey))
 bgb = fltarr(n_elements(hlorey))
 
-lorey2biomass, hlorey, type, agb, bgb
+;print, forestgroup
+;print, forestgroup_int
 
-;Adjust for wd
-print, 'Applying wd...'
-index = where((globcover eq 40) or (globcover eq 160), count)
-for i=0ULL, count-1 do begin
-	lon = longitude[index[i]]
-	lat = latitude[index[i]]
-	wd = get_wd(wd_image, lon, lat)
-	if (wd ne 0) then begin
-		if (lon lt -30) then mean_wd = 0.59 else mean_wd = 0.6 ;South America = 0.59 , other 2 = 0.6
-		ratio = wd/mean_wd
-		agb[index[i]] *= ratio
-		bgb[index[i]] *= ratio
-	endif
-endfor
+
+lorey2biomass2, hlorey, type, countrycode_int, forestgroup_int, globcover, agb, bgb
 
 ;write output
 
@@ -51,7 +43,7 @@ print, 'Writing output...'
 openw, 1, out_file
 
 ;printf, 1, '"longitude","latitude","comb_hlorey","comb_hmax","comb_source","pctslope","wwfbiome","globcover","vcf_2005_2006","allometry_type_2.2","agb_4.2.4","bgb_4.2.4"'
-printf, 1, '"agb_v6","bgb_v6"'
+printf, 1, '"allometry_type2.3","agb_v6.2","bgb_v6.2"'
 
 for i=0ULL, n_elements(hlorey)-1 do begin
 	out_string = ','
@@ -66,6 +58,7 @@ for i=0ULL, n_elements(hlorey)-1 do begin
 ;	out_string += strtrim(string((data.(8))[i]),2) + ','
 ;	out_string += strtrim(string((data.(9))[i]),2) + ','
 ;	out_string += strtrim(string((data.(9))[i]),2) + ','
+	out_string += strtrim(string(type[i]),2) + ','
 	out_string += strtrim(string(agb[i],format='(f7.1)'),2) + ','
 	out_string += strtrim(string(bgb[i],format='(f7.1)'),2)
 
