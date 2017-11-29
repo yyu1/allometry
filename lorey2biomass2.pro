@@ -123,43 +123,43 @@ MAX_AGB = 800
 
 ;150 - FIA Forest Type 100
 		150: begin
-			agb_array[*] = 0.3681 * (lorey_array^1.9325) < 300
+			agb_array[*] = 0.32907 * (lorey_array^2.12809) < 300
 			bgb_array[*] = 0.22149 * agb_array
 		end
 
 ;151 - FIA Forest Type 120
 		151: begin
-			agb_array[*] = 0.2796 * (lorey_array^2.1302) < 200
+			agb_array[*] = 0.51191 * (lorey_array^2.06061) < 200
 			bgb_array[*] = 0.22149 * agb_array
 		end
 	
 ;152 - FIA Forest Type 140
 		152: begin
-			agb_array[*] = 0.0216 * (lorey_array^2.8301) < 320
+			agb_array[*] = 0.08110 * (lorey_array^2.71728) < 320
 			bgb_array[*] = 0.22149 * agb_array
 		end
 
 ;153 - FIA Forest Type 160
 		153: begin
-			agb_array[*] = 0.0739*(lorey_array^2.4311) < 360
+			agb_array[*] = 0.19206*(lorey_array^2.28245) < 360
 			bgb_array[*] = 0.22149 * agb_array
 		end
 
 ;154 - FIA Forest Type 180
 		154: begin
-			agb_array[*] = 0.3802 * (lorey_array^1.8738) < 100
+			agb_array[*] = 0.19206 * (lorey_array^2.28245) < 100
 			bgb_array[*] = 0.22149 * agb_array
 		end
 
 ;155 - FIA Forest Type 200
 		155: begin
-			agb_array[*] = 0.8759 * (lorey_array^1.6638) < 1200
+			agb_array[*] = 0.00018 * (lorey_array^4.0) < 1200
 			bgb_array[*] = 0.22149 * agb_array
 		end
 
 ;156 - FIA Forest Type 220
 		156: begin
-			agb_array[*] = 1.1603 * (lorey_array^1.4970) < 400
+			agb_array[*] = 5.98854 * (lorey_array^0.9) < 400
 			bgb_array[*] = 0.22149 * agb_array
 		end
 
@@ -171,122 +171,122 @@ MAX_AGB = 800
 
 ;158 - FIA Forest Type 260
 		158: begin
-			agb_array[*] = 1.5001 * (lorey_array^1.5137) < 800
+			agb_array[*] = 5.98854* (lorey_array^0.9) < 800
 			bgb_array[*] = 0.22149 * agb_array
 		end
 
 ;159 - FIA Forest Type 280
 		159: begin
-			agb_array[*] = 0.5521 * (lorey_array^1.8395) < 400
+			agb_array[*] = 6.67576* (lorey_array^0.9) < 400
 			bgb_array[*] = 0.22149 * agb_array
 		end
 
 ;160 - FIA Forest Type 300
 		160: begin
-			agb_array[*] = 0.5424 * (lorey_array^1.8765) < 300
+			agb_array[*] = 0.03102* (lorey_array^2.61256) < 300
 			bgb_array[*] = 0.22149 * agb_array
 		end
 		
 ;161 - FIA Forest Type 320
 		161: begin
-			agb_array[*] = 0.2063 * (lorey_array^2.0276) < 400
+			agb_array[*] = 0.00252 * (lorey_array^3.21778) < 400
 			bgb_array[*] = 0.22149 * agb_array
 		end
 
 ;162 - FIA Forest Type 340
 		162: begin
-			agb_array[*] = 0.0021 * (lorey_array^3.2265) < 1700
+			agb_array[*] = 0.00076 * (lorey_array^3.64036) < 1700
 			bgb_array[*] = 0.22149 * agb_array
 		end
 
 ;163 - FIA Forest Type 360
 		163: begin
-			agb_array[*] = 1.4150 * (lorey_array^1.5235) < 270
+			agb_array[*] = 0.01735 * (lorey_array^2.72384) < 270
 			bgb_array[*] = 0.22149 * agb_array
 		end
 ;164 - FIA Forest Type 370
 		164: begin
-			agb_array[*] = 0.6387 * (lorey_array^1.7132) < 700
+			agb_array[*] = 0.01735 * (lorey_array^2.72384) < 700
 			bgb_array[*] = 0.22149 * agb_array
 		end
 
 ;165 - FIA Forest Type 380
 		165: begin
-			agb_array[*] = 0.2552 * (lorey_array^2.0577) < 200
+			agb_array[*] = 0.01551 * (lorey_array^3.22046) < 200
 			bgb_array[*] = 0.22149 * agb_array
 		end
 
 ;166 - FIA Forest Type 400
 		166: begin
-			agb_array[*] = 0.1055 * (lorey_array^2.2990) < 350
+			agb_array[*] = 0.10579 * (lorey_array^2.49521) < 350
 			bgb_array[*] = 0.20844 * agb_array
 		end
 
 ;167 - FIA Forest Type 500
 		167: begin
-			agb_array[*] = 0.3906 * (lorey_array^1.8805) < 450
+			agb_array[*] = 9.71904 * (lorey_array^0.9) < 450
 			bgb_array[*] = 0.19677 * agb_array
 		end
 
 ;168 - FIA Forest Type 600
 		168: begin
-			agb_array[*] = 0.0746 * (lorey_array^2.4345) < 650
+			agb_array[*] = 0.05511 * (lorey_array^2.83922) < 650
 			bgb_array[*] = 0.19677 * agb_array
 		end
 
 ;169 - FIA Forest Type 700
 		169: begin
-			agb_array[*] = 0.3313 * (lorey_array^1.9116) < 350
+			agb_array[*] = 0.06315 * (lorey_array^2.76584) < 350
 			bgb_array[*] = 0.19677 * agb_array
 		end
 		
 
 ;170 - FIA Forest Type 800
 		170: begin
-			agb_array[*] = 0.6698 * (lorey_array^1.7370) < 350
+			agb_array[*] = 12.23303 * (lorey_array^0.9) < 350
 			bgb_array[*] = 0.19677 * agb_array
 		end
 
 ;171 - FIA Forest Type 900
 		171: begin
-			agb_array[*] = 0.0497 * (lorey_array^2.5337) < 300
+			agb_array[*] = 0.15876 * (lorey_array^2.39055) < 300
 			bgb_array[*] = 0.19677 * agb_array
 		end
 
 ;172 - FIA Forest Type 910
 		172: begin
-			agb_array[*] = 0.0504 * (lorey_array^2.4195) < 500
+			agb_array[*] = 18.04487 * (lorey_array^0.9) < 500
 			bgb_array[*] = 0.19677 * agb_array
 		end
 							
 
 ;173 - FIA Forest Type 920
 		173: begin
-			agb_array[*] = 3.3549 * (lorey_array^1.2291) < 400
+			agb_array[*] = 0.01268 * (lorey_array^2.85115) < 400
 			bgb_array[*] = 0.19677 * agb_array
 		end
 
 ;174 - FIA Forest Type 940
 		174: begin
-			agb_array[*] = 3.4535 * (lorey_array^1.3075) < 350
+			agb_array[*] = 0.01268 * (lorey_array^2.85115) < 350
 			bgb_array[*] = 0.19677 * agb_array
 		end
 			
 ;175 - FIA Forest Type 960
 		175: begin
-			agb_array[*] = 0.0544 * (lorey_array^2.5567) < 350
+			agb_array[*] = 0.00073 * (lorey_array^3.65407) < 350
 			bgb_array[*] = 0.19677 * agb_array
 		end
 
 ;176 - FIA Forest Type 980
 		176: begin
-			agb_array[*] = 5.0211 * (lorey_array^1.2510) < 200
+			agb_array[*] = 0.82416 * (lorey_array^1.89540) < 200
 			bgb_array[*] = 0.19677 * agb_array
 		end
 
 ;177 - FIA Forest Type 990
 		177: begin
-			agb_array[*] = 0.0645 * (lorey_array^2.4135) < 250
+			agb_array[*] = 0.13756 * (lorey_array^2.64886) < 250
 			bgb_array[*] = 0.19677 * agb_array
 		end
 	
