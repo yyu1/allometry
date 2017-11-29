@@ -13,13 +13,13 @@ latitude = data.(1)
 forestgroup = data.(6)
 countrycode = data.(7)
 
-index = where(forestgroup eq 'oob')
-forestgroup[index] = '0'
-forestgroup_int = fix(forestgroup)
-
-index = where(countrycode eq 'oob')
-countrycode[index] = '0'
-countrycode_int = fix(countrycode)
+;index = where(forestgroup eq 'oob')
+;forestgroup[index] = '0'
+;forestgroup_int = fix(forestgroup)
+;
+;index = where(countrycode eq 'oob')
+;countrycode[index] = '0'
+;countrycode_int = fix(countrycode)
 
 ;Adjust hlorey if globcover type is 40 or 160 and srtm is below a certain elevation.
 ;This should match up with the hlorey_adjust program
